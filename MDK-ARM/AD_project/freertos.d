@@ -52,3 +52,4 @@ ad_project\freertos.o: ../Inc/usart.h
 ad_project\freertos.o: ..\Addtional\log\BY_log.h
 ad_project\freertos.o: ..\application layer\application.h
 ad_project\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
+ad_project\freertos.o: ../Inc/rtc.h

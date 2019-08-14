@@ -54,3 +54,4 @@ ad_project\application.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart
 ad_project\application.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
 ad_project\application.o: ../Inc/usart.h
 ad_project\application.o: e:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+ad_project\application.o: ../Inc/rtc.h

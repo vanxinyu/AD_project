@@ -1,5 +1,5 @@
 Dependencies for Project 'AD_project', Target 'AD_project': (DO NOT MODIFY !)
-F (../Src/main.c)(0x5D53B303)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Addtional\log -I ..\Addtional\malloc -I "..\application layer"-I.\RTE\_AD_project-Ie:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-Ie:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC-o ad_project\main.o --omf_browse ad_project\main.crf --depend ad_project\main.d)
+F (../Src/main.c)(0x5D53BD2B)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Addtional\log -I ..\Addtional\malloc -I "..\application layer"-I.\RTE\_AD_project-Ie:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-Ie:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC-o ad_project\main.o --omf_browse ad_project\main.crf --depend ad_project\main.d)
 I (../Inc/main.h)(0x5D53B303)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h)(0x5D4BDD1A)
 I (../Inc/stm32f3xx_hal_conf.h)(0x5D53B303)
@@ -48,7 +48,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x5D4BDD22)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x5D4BDD22)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x5D4BDD22)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x5D4BDD22)
-I (../Inc/rtc.h)(0x5D53B302)
+I (../Inc/rtc.h)(0x5D53BFA1)
 I (../Inc/usart.h)(0x5D53B303)
 I (../Inc/gpio.h)(0x5D53B301)
 F (../Src/gpio.c)(0x5D53B301)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Addtional\log -I ..\Addtional\malloc -I "..\application layer"-I.\RTE\_AD_project-Ie:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-Ie:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC-o ad_project\gpio.o --omf_browse ad_project\gpio.crf --depend ad_project\gpio.d)
@@ -86,7 +86,7 @@ I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h)(0x5D4BDD1C)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h)(0x5D4BDD1C)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h)(0x5D4BDD1C)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h)(0x5D4BDD1C)
-F (../Src/freertos.c)(0x5D53B302)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Addtional\log -I ..\Addtional\malloc -I "..\application layer"-I.\RTE\_AD_project-Ie:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-Ie:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC-o ad_project\freertos.o --omf_browse ad_project\freertos.crf --depend ad_project\freertos.d)
+F (../Src/freertos.c)(0x5D53C0B8)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Addtional\log -I ..\Addtional\malloc -I "..\application layer"-I.\RTE\_AD_project-Ie:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-Ie:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC-o ad_project\freertos.o --omf_browse ad_project\freertos.crf --depend ad_project\freertos.d)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x5D4BDD22)
 I (e:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599EDB3C)
 I (e:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
@@ -137,9 +137,10 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x5D4BDD22)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x5D4BDD22)
 I (../Inc/usart.h)(0x5D53B303)
 I (..\Addtional\log\BY_log.h)(0x5C95B791)
-I (..\application layer\application.h)(0x5D537833)
-F (../Src/rtc.c)(0x5D53B302)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Addtional\log -I ..\Addtional\malloc -I "..\application layer"-I.\RTE\_AD_project-Ie:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-Ie:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC-o ad_project\rtc.o --omf_browse ad_project\rtc.crf --depend ad_project\rtc.d)
-I (../Inc/rtc.h)(0x5D53B302)
+I (..\application layer\application.h)(0x5D53BD2B)
+I (../Inc/rtc.h)(0x5D53BFA1)
+F (../Src/rtc.c)(0x5D53BBB6)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Addtional\log -I ..\Addtional\malloc -I "..\application layer"-I.\RTE\_AD_project-Ie:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-Ie:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC-o ad_project\rtc.o --omf_browse ad_project\rtc.crf --depend ad_project\rtc.d)
+I (../Inc/rtc.h)(0x5D53BFA1)
 I (../Inc/main.h)(0x5D53B303)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h)(0x5D4BDD1A)
 I (../Inc/stm32f3xx_hal_conf.h)(0x5D53B303)
@@ -1090,8 +1091,8 @@ F (..\Addtional\log\BY_log.c)(0x5C95B791)(--c99 -c --cpu Cortex-M4.fp -D__MICROL
 I (e:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599EDB3C)
 I (e:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
 I (..\Addtional\log\BY_log.h)(0x5C95B791)
-F (..\application layer\application.c)(0x5D538313)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Addtional\log -I ..\Addtional\malloc -I "..\application layer"-I.\RTE\_AD_project-Ie:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-Ie:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC-o ad_project\application.o --omf_browse ad_project\application.crf --depend ad_project\application.d)
-I (..\application layer\application.h)(0x5D537833)
+F (..\application layer\application.c)(0x5D53C0AD)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Addtional\log -I ..\Addtional\malloc -I "..\application layer"-I.\RTE\_AD_project-Ie:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-Ie:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC-o ad_project\application.o --omf_browse ad_project\application.crf --depend ad_project\application.d)
+I (..\application layer\application.h)(0x5D53BD2B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x5D4BDD22)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x5D4BDD22)
 I (e:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599EDB3C)
@@ -1144,3 +1145,4 @@ I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h)(0x5D4BDD1C)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h)(0x5D4BDD1C)
 I (../Inc/usart.h)(0x5D53B303)
 I (e:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (../Inc/rtc.h)(0x5D53BFA1)
