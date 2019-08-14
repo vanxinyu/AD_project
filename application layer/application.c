@@ -11,11 +11,16 @@
 #include "main.h"
 #include "usart.h"
 #include "stdlib.h"
+#include "rtc.h"
 
 #define head_flag  			0
 #define time_flag  			1
 #define time_begin_flag  	2
 #define time_end_flag  		3
+
+uint8_t tbuf[40];
+RTC_TimeTypeDef RTC_Time;
+RTC_DateTypeDef RTC_Date;
 
 QueueHandle_t command_buffer_Queue;
 
@@ -41,7 +46,7 @@ uint8_t Command_msg_handler( void )
 		{
 			HAL_UART_Transmit(&huart2,(uint8_t*)"收到的命令是",sizeof("收到的命令是"),1000);
 			HAL_UART_Transmit(&huart2,(uint8_t*)command_rcv->head,sizeof(command_rcv->head),1000);
-			//AD_start(command_rcv->time);
+			MY_AD_start(command_rcv->time);
 			free(command_rcv);
 		}
 		if(strcmp(command_rcv->head,"ad_read")==0)
@@ -412,4 +417,15 @@ uint8_t timet_compare(time_t time1,time_t time2)
 			}
 		}
 	}
+}
+
+uint8_t MY_AD_start(uint16_t time)
+{
+	HAL_RTC_GetTime(&hrtc,&RTC_Time,RTC_FORMAT_BIN);
+	sprintf((char*)tbuf,"Time:%02d:%02d:%02d\r\n",RTC_Time.Hours,RTC_Time.Minutes,RTC_Time.Seconds);
+	HAL_UART_Transmit(&huart2,(uint8_t*)tbuf,sizeof(tbuf),1000);
+	HAL_RTC_GetDate(&hrtc,&RTC_Date,RTC_FORMAT_BIN);
+	sprintf((char*)tbuf,"Date:20%02d-%02d-%02d\r\n",RTC_Date.Year,RTC_Date.Month,RTC_Date.Date);
+	HAL_UART_Transmit(&huart2,(uint8_t*)tbuf,sizeof(tbuf),1000);
+	return 0;
 }

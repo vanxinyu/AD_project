@@ -29,6 +29,7 @@
 #include "usart.h"
 #include "BY_log.h"
 #include "application.h"
+#include "rtc.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -115,6 +116,7 @@ void TaskConfig(void const * argument)
 {
 
   /* USER CODE BEGIN TaskConfig */
+	RTC_init_set();
 	command_buffer_Queue = xQueueCreate(command_buffer_Queue_LEN, sizeof(uint8_t *));
   /* Infinite loop */
   for(;;)
@@ -142,7 +144,7 @@ void u2_rv(void const * argument)
 	  if(USART_RX_STA&0x8000)
 	{					   
 		len=USART_RX_STA&0x3fff;
-		HAL_UART_Transmit(&huart2,(uint8_t*)USART_RX_BUF,len,1000);	
+//		HAL_UART_Transmit(&huart2,(uint8_t*)USART_RX_BUF,len,1000);	
 		while(__HAL_UART_GET_FLAG(&huart2,UART_FLAG_TC)!=SET);
 		if(!command_msg_analysis(USART_RX_BUF,len)){
 			log_debug("command handle success");
