@@ -116,7 +116,7 @@ void TaskConfig(void const * argument)
 {
 
   /* USER CODE BEGIN TaskConfig */
-	RTC_init_set();
+	project_init();
 	command_buffer_Queue = xQueueCreate(command_buffer_Queue_LEN, sizeof(uint8_t *));
   /* Infinite loop */
   for(;;)

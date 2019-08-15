@@ -12,6 +12,7 @@
 #include "usart.h"
 #include "stdlib.h"
 #include "rtc.h"
+#include "mmc_sd.h"		
 
 #define head_flag  			0
 #define time_flag  			1
@@ -428,4 +429,10 @@ uint8_t MY_AD_start(uint16_t time)
 	sprintf((char*)tbuf,"Date:20%02d-%02d-%02d\r\n",RTC_Date.Year,RTC_Date.Month,RTC_Date.Date);
 	HAL_UART_Transmit(&huart2,(uint8_t*)tbuf,sizeof(tbuf),1000);
 	return 0;
+}
+
+void 	project_init(void)
+{
+	RTC_init_set();
+	SD_check_init();
 }

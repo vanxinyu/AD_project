@@ -36,4 +36,5 @@ uint8_t Command_msg_handler( void );
 uint8_t timet_checking(time_t time);
 uint8_t timet_compare(time_t time1,time_t time2);
 uint8_t MY_AD_start(uint16_t time);
+void 	project_init(void);
 #endif

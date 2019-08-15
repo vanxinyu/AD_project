@@ -28,6 +28,8 @@ ad_project\system_stm32f3xx.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal
 ad_project\system_stm32f3xx.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h
 ad_project\system_stm32f3xx.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rtc.h
 ad_project\system_stm32f3xx.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rtc_ex.h
+ad_project\system_stm32f3xx.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h
+ad_project\system_stm32f3xx.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi_ex.h
 ad_project\system_stm32f3xx.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h
 ad_project\system_stm32f3xx.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h
 ad_project\system_stm32f3xx.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h

@@ -48,6 +48,8 @@ ad_project\application.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr.
 ad_project\application.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h
 ad_project\application.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rtc.h
 ad_project\application.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rtc_ex.h
+ad_project\application.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h
+ad_project\application.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi_ex.h
 ad_project\application.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h
 ad_project\application.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h
 ad_project\application.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h
@@ -55,3 +57,5 @@ ad_project\application.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart
 ad_project\application.o: ../Inc/usart.h
 ad_project\application.o: e:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 ad_project\application.o: ../Inc/rtc.h
+ad_project\application.o: ..\application layer\mmc_sd.h
+ad_project\application.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
