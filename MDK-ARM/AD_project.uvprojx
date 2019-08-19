@@ -607,6 +607,11 @@
               <FileType>1</FileType>
               <FilePath>..\Addtional\log\BY_log.c</FilePath>
             </File>
+            <File>
+              <FileName>my_malloc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Addtional\malloc\my_malloc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

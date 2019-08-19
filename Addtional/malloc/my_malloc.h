@@ -25,7 +25,7 @@
 #define MEM_ERROR_NO_VALID_BLOCK 0XFFFFFFFF
 
 // 内存管理参数
-#define MEM1_TOTAL_SIZE  (35*1024)                         //内存池大小，Byte
+#define MEM1_TOTAL_SIZE  (16*1024)                         //内存池大小，Byte
 #define MEM1_BLOCK_SIZE  (32)                              //内存块大小，Byte
 #define MEM1_BLOCK_NUM   (MEM1_TOTAL_SIZE/MEM1_BLOCK_SIZE) //内存块数量
 

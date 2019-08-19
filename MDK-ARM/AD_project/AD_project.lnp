@@ -40,6 +40,7 @@
 "ad_project\heap_4.o"
 "ad_project\port.o"
 "ad_project\by_log.o"
+"ad_project\my_malloc.o"
 "ad_project\application.o"
 "ad_project\mmc_sd.o"
 --library_type=microlib --strict --scatter "AD_project\AD_project.sct"
