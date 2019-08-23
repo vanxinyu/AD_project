@@ -43,6 +43,9 @@
 "ad_project\my_malloc.o"
 "ad_project\application.o"
 "ad_project\mmc_sd.o"
+"ad_project\diskio.o"
+"ad_project\ff.o"
+"ad_project\cc936.o"
 --library_type=microlib --strict --scatter "AD_project\AD_project.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

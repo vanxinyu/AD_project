@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F373xC</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;    ../Drivers/STM32F3xx_HAL_Driver/Inc;    ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy;    ../Drivers/CMSIS/Device/ST/STM32F3xx/Include;    ../Drivers/CMSIS/Include;    ../Middlewares/Third_Party/FreeRTOS/Source/include;    ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;    ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;    ..\Addtional\log;    ..\Addtional\malloc;    ..\application layer</IncludePath>
+              <IncludePath>../Inc;../Drivers/STM32F3xx_HAL_Driver/Inc;../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F3xx/Include;../Drivers/CMSIS/Include;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;..\Addtional\log;..\Addtional\malloc;..\application layer;..\ff13c\src</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -626,6 +626,21 @@
               <FileName>MMC_SD.C</FileName>
               <FileType>1</FileType>
               <FilePath>..\application layer\MMC_SD.C</FilePath>
+            </File>
+            <File>
+              <FileName>diskio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ff13c\src\diskio.c</FilePath>
+            </File>
+            <File>
+              <FileName>ff.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ff13c\src\ff.c</FilePath>
+            </File>
+            <File>
+              <FileName>cc936.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ff13c\src\option\cc936.c</FilePath>
             </File>
           </Files>
         </Group>

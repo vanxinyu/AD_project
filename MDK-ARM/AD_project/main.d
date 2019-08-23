@@ -54,3 +54,10 @@ ad_project\main.o: ../Inc/rtc.h
 ad_project\main.o: ../Inc/spi.h
 ad_project\main.o: ../Inc/usart.h
 ad_project\main.o: ../Inc/gpio.h
+ad_project\main.o: ..\application layer\mmc_sd.h
+ad_project\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
+ad_project\main.o: ..\ff13c\src\ff.h
+ad_project\main.o: ..\ff13c\src\integer.h
+ad_project\main.o: ..\ff13c\src\ffconf.h
+ad_project\main.o: ..\ff13c\src\diskio.h
+ad_project\main.o: e:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
