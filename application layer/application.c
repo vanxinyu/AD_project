@@ -13,6 +13,9 @@
 #include "stdlib.h"
 #include "rtc.h"
 #include "mmc_sd.h"		
+#include "ff.h"			/* FatFs configurations and declarations */
+#include "diskio.h"		/* Declarations of low level disk I/O functions */
+
 
 #define head_flag  			0
 #define time_flag  			1
@@ -430,9 +433,48 @@ uint8_t MY_AD_start(uint16_t time)
 	HAL_UART_Transmit(&huart2,(uint8_t*)tbuf,sizeof(tbuf),1000);
 	return 0;
 }
+void FATFS_INIT(void)
+{
+	FATFS fs[2];  		//逻辑磁盘工作区.	 
+	FIL fnew; //文件对象
+	FRESULT res_sd;//文件操作结果
+	UINT fnum; //文件成功读写数量
+	res_sd = f_mount(0, &fs[0]);
+	if(res_sd == FR_NO_FILESYSTEM)
+	{
+		log_debug("SD卡没有文件系统，即将进行格式化...\r\n");
+		//格式化
+		res_sd = f_mkfs(0, 0, 0);
+		
+		if(res_sd == FR_OK)
+		{
+			printf("SD卡成功格式化！\r\n");
+			//格式化后先取消挂载
+			res_sd = f_mount(0,NULL);
+			//再重新挂载
+			res_sd = f_mount(0,&fs[0]);
+		}
+		else
+		{
+			log_debug("文件格式化失败！错误代码：%d\r\n",res_sd);
+			while(1);
+		}
+	}
+	else if(res_sd != FR_OK)
+	{
+		log_error("挂载文件系统失败！可能是因为文件初始化失败！错误代码：%d\r\n", res_sd);
+	}
+	else
+	{
+		log_info("FATFS prepare ok！can write now\r\n");
+	}
+	
+	
+}
 
 void 	project_init(void)
 {
 	RTC_init_set();
 	SD_check_init();
+	FATFS_INIT();
 }

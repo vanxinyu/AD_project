@@ -22,16 +22,21 @@ Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
 D:\fxy\PROJECT\ad\AD_project\MDK-ARM\AD_project.uvprojx
-Project File Date:  08/23/2019
+Project File Date:  09/13/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'e:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'AD_project'
-compiling main.c...
+compiling application.c...
+..\application layer\application.c(439): warning:  #177-D: variable "fnew"  was declared but never referenced
+  	FIL fnew; //文件对象
+..\application layer\application.c(441): warning:  #177-D: variable "fnum"  was declared but never referenced
+  	UINT fnum; //文件成功读写数量
+..\application layer\application.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=24152 RO-data=175892 RW-data=160 ZI-data=5584  
+Program Size: Code=23980 RO-data=652 RW-data=192 ZI-data=5640  
 FromELF: creating hex file...
-"AD_project\AD_project.axf" - 0 Error(s), 0 Warning(s).
+"AD_project\AD_project.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -54,7 +59,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.1.2
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
