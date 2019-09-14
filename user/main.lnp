@@ -1,0 +1,20 @@
+--cpu Cortex-M4.fp
+".\startup_stm32f37x.o"
+".\system_stm32f37x.o"
+".\main.o"
+".\w25x16.o"
+".\fatapp.o"
+".\ili9328.o"
+".\sd.o"
+".\uart.o"
+".\stm32f37x_spi.o"
+".\stm32f37x_gpio.o"
+".\stm32f37x_rcc.o"
+".\stm32f37x_usart.o"
+".\diskio.o"
+".\ff.o"
+".\cc936.o"
+--strict --scatter ".\main.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\main.map" -o .\main.axf

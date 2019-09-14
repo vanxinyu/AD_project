@@ -1,0 +1,32 @@
+*** Creating Trace Output File 'main.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup_stm32f37x.o"'
+### List of Objects: adding '"system_stm32f37x.o"'
+### List of Objects: adding '"main.o"'
+### List of Objects: adding '"w25x16.o"'
+### List of Objects: adding '"fatapp.o"'
+### List of Objects: adding '"ili9328.o"'
+### List of Objects: adding '"sd.o"'
+### List of Objects: adding '"stm32f37x_spi.o"'
+### List of Objects: adding '"stm32f37x_gpio.o"'
+### List of Objects: adding '"stm32f37x_rcc.o"'
+### List of Objects: adding '"diskio.o"'
+### List of Objects: adding '"ff.o"'
+### List of Objects: adding '"cc936.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M4.fp "startup_stm32f37x.o" "system_stm32f37x.o" "main.o" "w25x16.o" "fatapp.o" "ili9328.o" "sd.o" "stm32f37x_spi.o" "stm32f37x_gpio.o" "stm32f37x_rcc.o" "diskio.o" "ff.o" "cc936.o" 
+--strict --scatter "main.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\main.map" -o main.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'main.axf'
+### ADS-LD Command File: 'main.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'main.lnp', Handle=0x000002FC
+### Writing '.lnp' file
+### ADS-LD Command file 'main.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.
