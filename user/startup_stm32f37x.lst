@@ -732,10 +732,11 @@ ARM Macro Assembler    Page 12
               00000400 
               00000200 
               00000000 
-Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=.\sta
-rtup_stm32f37x.d -o.\startup_stm32f37x.o -Ie:\Keil_v4\ARM\RV31\INC -Ie:\Keil_v4
-\ARM\CMSIS\Include -Ie:\Keil_v4\ARM\Inc\ST\STM32F37x --list=.\startup_stm32f37x
-.lst startup_stm32f37x.s
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\startup_stm32f37x.d -o.\startup_stm32f37x.o -Ie:\Keil_v5\ARM\
+RV31\INC -Ie:\Keil_v5\ARM\CMSIS\Include -Ie:\Keil_v5\ARM\INC\ST\STM32F37x --pre
+define="__UVISION_VERSION SETA 526" --list=.\startup_stm32f37x.lst startup_stm3
+2f37x.s
 
 
 
@@ -1668,4 +1669,4 @@ Symbol: __use_two_region_memory
       None
 Comment: __use_two_region_memory unused
 3 symbols
-428 symbols in table
+429 symbols in table

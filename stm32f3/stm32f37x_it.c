@@ -29,6 +29,8 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f37x_it.h"
+#include "sdadc.h"
+#include "systick.h"
 
 /** @addtogroup STM32F37x_StdPeriph_Examples
   * @{
@@ -43,6 +45,8 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+extern int16_t InjectedConvData;
+
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
@@ -145,6 +149,7 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
+	 TimingDelay_Decrement();
 }
 
 /******************************************************************************/
@@ -158,7 +163,6 @@ void SysTick_Handler(void)
 void ADC1_IRQHandler(void)
 {
 }
-
 
 /******************************************************************************/
 /*                 STM32F37x Peripherals Interrupt Handlers                   */
@@ -194,5 +198,22 @@ void EXTI9_5_IRQHandler(void)
 /**
   * @}
   */
+/**
+  * @brief  This function handles SDADC1 interrupt request.
+  * @param  None
+  * @retval : None
+  */
+void SDADC1_IRQHandler(void)
+{
+  uint32_t ChannelIndex;
+
+  if(SDADC_GetFlagStatus(SDADC1, SDADC_FLAG_JEOC) != RESET)
+  {
+    /* Get the converted value */
+    InjectedConvData = SDADC_GetInjectedConversionValue(SDADC1, &ChannelIndex);
+  }
+}
+
+
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

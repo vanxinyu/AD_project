@@ -3,16 +3,108 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Project:</h2>
-D:\fxy\PROJECT\ad\实验十七：文件系统sd卡读取（库函数）\实验十七：文件系统sd卡读取（库函数）\user\main.uvproj
-Project File Date:  09/14/2019
+D:\fxy\PROJECT\ad\AD_project\user\main.uvproj
+Project File Date:  09/15/2019
 
 <h2>Output:</h2>
 Build target 'Target 1'
+compiling uart.c...
+..\drive\uart.c(123): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
 linking...
-Program Size: Code=15796 RO-data=424 RW-data=84 ZI-data=4316  
-".\main.axf" - 0 Errors, 0 Warning(s).
+Program Size: Code=10516 RO-data=424 RW-data=96 ZI-data=1632  
+".\main.axf" - 0 Errors, 1 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling uart.c...
+..\drive\uart.c(140): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
+linking...
+Program Size: Code=10572 RO-data=424 RW-data=96 ZI-data=1632  
+".\main.axf" - 0 Errors, 1 Warning(s).
 Build target 'Target 1'
 compiling main.c...
+main.c(52): warning:  #223-D: function "USART_Configuration" declared implicitly
+main.c(55): warning:  #767-D: conversion from pointer to smaller integer
+main.c(56): warning:  #767-D: conversion from pointer to smaller integer
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling uart.c...
+..\drive\uart.c(140): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
 linking...
-Program Size: Code=15796 RO-data=424 RW-data=84 ZI-data=4316  
-".\main.axf" - 0 Errors, 0 Warning(s).
+Program Size: Code=10572 RO-data=424 RW-data=96 ZI-data=1632  
+".\main.axf" - 0 Errors, 9 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+main.c(52): warning:  #223-D: function "USART_Configuration" declared implicitly
+main.c(55): warning:  #223-D: function "UART2_Send" declared implicitly
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+linking...
+.\main.axf: Error: L6200E: Symbol buf multiply defined (by ili9328.o and main.o).
+".\main.axf" - 1 Errors, 7 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c(52): warning:  #223-D: function "USART_Configuration" declared implicitly
+main.c(55): warning:  #223-D: function "UART2_Send" declared implicitly
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+linking...
+Program Size: Code=10548 RO-data=424 RW-data=100 ZI-data=1636  
+".\main.axf" - 0 Errors, 7 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling stm32f37x_it.c...
+..\stm32f3\stm32f37x_it.c(222): error:  #20: identifier "USART_RX_STA" is undefined
+..\stm32f3\stm32f37x_it.c(234): error:  #20: identifier "USART_RX_BUF" is undefined
+..\stm32f3\stm32f37x_it.c(236): error:  #20: identifier "USART_REC_LEN" is undefined
+compiling main.c...
+main.c(52): warning:  #223-D: function "USART_Configuration" declared implicitly
+main.c(55): warning:  #223-D: function "UART2_Send" declared implicitly
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling uart.c...
+..\drive\uart.c(140): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
+".\main.axf" - 3 Errors, 8 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling stm32f37x_it.c...
+..\stm32f3\stm32f37x_it.c(222): error:  #20: identifier "USART_RX_STA" is undefined
+..\stm32f3\stm32f37x_it.c(234): error:  #20: identifier "USART_RX_BUF" is undefined
+..\stm32f3\stm32f37x_it.c(236): error:  #20: identifier "USART_REC_LEN" is undefined
+compiling main.c...
+main.c(52): warning:  #223-D: function "USART_Configuration" declared implicitly
+main.c(55): warning:  #223-D: function "UART2_Send" declared implicitly
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling uart.c...
+..\drive\uart.c(140): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
+".\main.axf" - 3 Errors, 8 Warning(s).
+Target not created
