@@ -4,70 +4,369 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 D:\fxy\PROJECT\ad\AD_project\user\main.uvproj
-Project File Date:  09/15/2019
+Project File Date:  09/18/2019
 
 <h2>Output:</h2>
 Build target 'Target 1'
-compiling uart.c...
-..\drive\uart.c(123): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
 linking...
-Program Size: Code=10516 RO-data=424 RW-data=96 ZI-data=1632  
-".\main.axf" - 0 Errors, 1 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling uart.c...
-..\drive\uart.c(140): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
-linking...
-Program Size: Code=10572 RO-data=424 RW-data=96 ZI-data=1632  
-".\main.axf" - 0 Errors, 1 Warning(s).
+Program Size: Code=10796 RO-data=424 RW-data=108 ZI-data=1836  
+".\main.axf" - 0 Errors, 0 Warning(s).
 Build target 'Target 1'
 compiling main.c...
-main.c(52): warning:  #223-D: function "USART_Configuration" declared implicitly
-main.c(55): warning:  #767-D: conversion from pointer to smaller integer
-main.c(56): warning:  #767-D: conversion from pointer to smaller integer
 main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
 main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
 main.c(45): warning:  #177-D: variable "time" was declared but never referenced
 main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
 main.c(47): warning:  #177-D: variable "t" was declared but never referenced
-compiling uart.c...
-..\drive\uart.c(140): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
+compiling application.c...
+..\drive\application.c(39): warning:  #223-D: function "xQueueReceive" declared implicitly
+..\drive\application.c(39): error:  #20: identifier "command_buffer_Queue" is undefined
+..\drive\application.c(39): error:  #20: identifier "portTICK_PERIOD_MS" is undefined
+..\drive\application.c(44): warning:  #223-D: function "HAL_UART_Transmit" declared implicitly
+..\drive\application.c(44): error:  #20: identifier "huart2" is undefined
+..\drive\application.c(51): warning:  #223-D: function "HAL_UART_Transmit" declared implicitly
+..\drive\application.c(51): error:  #20: identifier "huart2" is undefined
+..\drive\application.c(101): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(112): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(126): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(134): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(145): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(152): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(171): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(181): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(258): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(274): warning:  #223-D: function "log_debug" declared implicitly
+..\drive\application.c(280): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(288): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(299): warning:  #223-D: function "log_info" declared implicitly
+..\drive\application.c(300): error:  #268: declaration may not appear after executable statement in block
+..\drive\application.c(300): error:  #20: identifier "BaseType_t" is undefined
+..\drive\application.c(301): warning:  #223-D: function "xQueueSend" declared implicitly
+..\drive\application.c(301): error:  #20: identifier "command_buffer_Queue" is undefined
+..\drive\application.c(302): error:  #20: identifier "pdPASS" is undefined
+..\drive\application.c(310): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(330): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(335): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(342): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(350): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(358): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(364): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(369): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(421): warning:  #223-D: function "HAL_RTC_GetTime" declared implicitly
+..\drive\application.c(421): error:  #20: identifier "hrtc" is undefined
+..\drive\application.c(421): error:  #20: identifier "RTC_FORMAT_BIN" is undefined
+..\drive\application.c(422): error:  #136: struct "<unnamed>" has no field "Hours"
+..\drive\application.c(422): error:  #136: struct "<unnamed>" has no field "Minutes"
+..\drive\application.c(422): error:  #136: struct "<unnamed>" has no field "Seconds"
+..\drive\application.c(423): warning:  #223-D: function "HAL_UART_Transmit" declared implicitly
+..\drive\application.c(423): error:  #20: identifier "huart2" is undefined
+..\drive\application.c(424): warning:  #223-D: function "HAL_RTC_GetDate" declared implicitly
+..\drive\application.c(425): error:  #136: struct "<unnamed>" has no field "Year"
+..\drive\application.c(425): error:  #136: struct "<unnamed>" has no field "Month"
+..\drive\application.c(425): error:  #136: struct "<unnamed>" has no field "Date"
+..\drive\application.c(432): warning:  #223-D: function "RTC_init_set" declared implicitly
+..\drive\application.c(433): warning:  #223-D: function "SD_check_init" declared implicitly
+".\main.axf" - 17 Errors, 35 Warning(s).
+Target not created
+Build target 'Target 1'
 linking...
-Program Size: Code=10572 RO-data=424 RW-data=96 ZI-data=1632  
-".\main.axf" - 0 Errors, 9 Warning(s).
+Program Size: Code=10764 RO-data=424 RW-data=104 ZI-data=1832  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
 Build target 'Target 1'
 compiling main.c...
-main.c(52): warning:  #223-D: function "USART_Configuration" declared implicitly
-main.c(55): warning:  #223-D: function "UART2_Send" declared implicitly
 main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
 main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
 main.c(45): warning:  #177-D: variable "time" was declared but never referenced
 main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
 main.c(47): warning:  #177-D: variable "t" was declared but never referenced
 linking...
-.\main.axf: Error: L6200E: Symbol buf multiply defined (by ili9328.o and main.o).
-".\main.axf" - 1 Errors, 7 Warning(s).
+Program Size: Code=10764 RO-data=424 RW-data=104 ZI-data=1832  
+".\main.axf" - 0 Errors, 5 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling main.c...
+main.c(43): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(44): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(46): warning:  #177-D: variable "time" was declared but never referenced
+main.c(47): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(48): warning:  #177-D: variable "t" was declared but never referenced
+compiling uart.c...
+..\drive\uart.c(199): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
+linking...
+.\main.axf: Error: L6218E: Undefined symbol Command_msg_handler (referred from main.o).
+".\main.axf" - 1 Errors, 6 Warning(s).
 Target not created
 Build target 'Target 1'
 compiling main.c...
-main.c(52): warning:  #223-D: function "USART_Configuration" declared implicitly
-main.c(55): warning:  #223-D: function "UART2_Send" declared implicitly
-main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
-main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
-main.c(45): warning:  #177-D: variable "time" was declared but never referenced
-main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
-main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(44): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(46): warning:  #177-D: variable "time" was declared but never referenced
+main.c(47): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(48): warning:  #177-D: variable "t" was declared but never referenced
 linking...
-Program Size: Code=10548 RO-data=424 RW-data=100 ZI-data=1636  
+.\main.axf: Error: L6218E: Undefined symbol command_msg_analysis (referred from main.o).
+".\main.axf" - 1 Errors, 5 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(101): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(112): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(126): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(134): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(145): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(152): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(171): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(181): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(258): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(274): warning:  #223-D: function "log_debug" declared implicitly
+..\drive\application.c(280): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(288): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(299): warning:  #223-D: function "log_info" declared implicitly
+..\drive\application.c(300): error:  #268: declaration may not appear after executable statement in block
+..\drive\application.c(300): error:  #20: identifier "BaseType_t" is undefined
+..\drive\application.c(301): warning:  #223-D: function "xQueueSend" declared implicitly
+..\drive\application.c(301): error:  #20: identifier "command_buffer_Queue" is undefined
+..\drive\application.c(302): error:  #20: identifier "pdPASS" is undefined
+..\drive\application.c(310): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(330): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(335): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(342): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(350): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(358): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(364): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(369): warning:  #223-D: function "log_error" declared implicitly
+".\main.axf" - 4 Errors, 22 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(101): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(112): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(126): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(134): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(145): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(152): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(171): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(181): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(258): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(274): warning:  #223-D: function "log_debug" declared implicitly
+..\drive\application.c(280): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(288): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(302): error:  #20: identifier "err" is undefined
+..\drive\application.c(302): error:  #20: identifier "pdPASS" is undefined
+..\drive\application.c(304): warning:  #223-D: function "log_info" declared implicitly
+..\drive\application.c(310): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(330): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(335): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(342): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(350): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(358): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(364): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(369): warning:  #223-D: function "log_error" declared implicitly
+".\main.axf" - 2 Errors, 21 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(101): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(112): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(126): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(134): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(145): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(152): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(171): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(181): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(258): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(274): warning:  #223-D: function "log_debug" declared implicitly
+..\drive\application.c(280): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(288): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(312): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(313): error:  #77-D: this declaration has no storage class or type specifier
+..\drive\application.c(314): error:  #169: expected a declaration
+..\drive\application.c(315): error:  #169: expected a declaration
+..\drive\application.c(372): warning:  #12-D: parsing restarts here after previous syntax error
+..\drive\application.c(374): error:  #169: expected a declaration
+..\drive\application.c(434): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+".\main.axf" - 4 Errors, 15 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(101): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(112): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(126): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(134): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(145): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(152): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(171): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(181): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(258): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(274): warning:  #223-D: function "log_debug" declared implicitly
+..\drive\application.c(280): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(288): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(330): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(335): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(342): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(350): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(358): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(364): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(369): warning:  #223-D: function "log_error" declared implicitly
+linking...
+.\main.axf: Error: L6218E: Undefined symbol log_debug (referred from application.o).
+.\main.axf: Error: L6218E: Undefined symbol log_error (referred from application.o).
+".\main.axf" - 2 Errors, 19 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(101): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(112): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(126): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(134): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(145): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(152): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(171): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(181): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(258): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(280): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(288): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(330): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(335): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(342): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(350): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(358): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(364): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(369): warning:  #223-D: function "log_error" declared implicitly
+linking...
+.\main.axf: Error: L6218E: Undefined symbol log_error (referred from application.o).
+".\main.axf" - 1 Errors, 18 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(101): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(112): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(126): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(134): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(145): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(152): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(171): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(181): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(258): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(288): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(330): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(335): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(342): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(350): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(358): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(364): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(369): warning:  #223-D: function "log_error" declared implicitly
+linking...
+.\main.axf: Error: L6218E: Undefined symbol log_error (referred from application.o).
+".\main.axf" - 1 Errors, 17 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(101): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(112): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(126): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(134): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(145): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(152): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(171): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(181): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(258): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(330): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(335): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(342): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(350): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(358): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(364): warning:  #223-D: function "log_error" declared implicitly
+..\drive\application.c(369): warning:  #223-D: function "log_error" declared implicitly
+linking...
+.\main.axf: Error: L6218E: Undefined symbol log_error (referred from application.o).
+".\main.axf" - 1 Errors, 16 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling application.c...
+linking...
+.\main.axf: Error: L6915E: Library reports error: __use_no_semihosting was requested, but _ttywrch was referenced
+".\main.axf" - 1 Errors, 0 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling uart.c...
+..\drive\uart.c(202): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
+compiling application.c...
+linking...
+Program Size: Code=12840 RO-data=424 RW-data=116 ZI-data=1836  
+".\main.axf" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: Code=12840 RO-data=424 RW-data=116 ZI-data=1836  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: Code=12840 RO-data=424 RW-data=116 ZI-data=1836  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling main.c...
+main.c(43): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(44): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(46): warning:  #177-D: variable "time" was declared but never referenced
+main.c(47): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(48): warning:  #177-D: variable "t" was declared but never referenced
+compiling application.c...
+..\drive\application.c(122): error:  #32: expression must have arithmetic type
+..\drive\application.c(123): error:  #41: expression must have arithmetic or pointer type
+..\drive\application.c(124): error:  #41: expression must have arithmetic or pointer type
+".\main.axf" - 3 Errors, 5 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(131): error:  #268: declaration may not appear after executable statement in block
+..\drive\application.c(132): error:  #65: expected a ";"
+..\drive\application.c(158): warning:  #12-D: parsing restarts here after previous syntax error
+..\drive\application.c(159): error:  #20: identifier "time" is undefined
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+".\main.axf" - 3 Errors, 7 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(121): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+linking...
+Program Size: Code=12192 RO-data=424 RW-data=116 ZI-data=1836  
+".\main.axf" - 0 Errors, 7 Warning(s).
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(127): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+linking...
+Program Size: Code=12488 RO-data=424 RW-data=116 ZI-data=1836  
 ".\main.axf" - 0 Errors, 7 Warning(s).
 Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
 Erase Done.
@@ -75,36 +374,1150 @@ Programming Done.
 Verify OK.
 Application running ...
 Build target 'Target 1'
-compiling stm32f37x_it.c...
-..\stm32f3\stm32f37x_it.c(222): error:  #20: identifier "USART_RX_STA" is undefined
-..\stm32f3\stm32f37x_it.c(234): error:  #20: identifier "USART_RX_BUF" is undefined
-..\stm32f3\stm32f37x_it.c(236): error:  #20: identifier "USART_REC_LEN" is undefined
 compiling main.c...
-main.c(52): warning:  #223-D: function "USART_Configuration" declared implicitly
-main.c(55): warning:  #223-D: function "UART2_Send" declared implicitly
+main.c(43): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(44): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(46): warning:  #177-D: variable "time" was declared but never referenced
+main.c(47): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(48): warning:  #177-D: variable "t" was declared but never referenced
+linking...
+Program Size: Code=12468 RO-data=424 RW-data=116 ZI-data=1836  
+".\main.axf" - 0 Errors, 5 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling main.c...
 main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
 main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
 main.c(45): warning:  #177-D: variable "time" was declared but never referenced
 main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
 main.c(47): warning:  #177-D: variable "t" was declared but never referenced
-compiling uart.c...
-..\drive\uart.c(140): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
-".\main.axf" - 3 Errors, 8 Warning(s).
+linking...
+Program Size: Code=12500 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 5 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(128): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+linking...
+Program Size: Code=12548 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 7 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(128): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+linking...
+Program Size: Code=12544 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 7 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(128): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+linking...
+Program Size: Code=12536 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 7 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(127): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(128): error:  #169: expected a declaration
+..\drive\application.c(185): warning:  #12-D: parsing restarts here after previous syntax error
+..\drive\application.c(187): error:  #169: expected a declaration
+..\drive\application.c(247): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+".\main.axf" - 2 Errors, 9 Warning(s).
 Target not created
 Build target 'Target 1'
-compiling stm32f37x_it.c...
-..\stm32f3\stm32f37x_it.c(222): error:  #20: identifier "USART_RX_STA" is undefined
-..\stm32f3\stm32f37x_it.c(234): error:  #20: identifier "USART_RX_BUF" is undefined
-..\stm32f3\stm32f37x_it.c(236): error:  #20: identifier "USART_REC_LEN" is undefined
+compiling application.c...
+..\drive\application.c(128): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+linking...
+Program Size: Code=12536 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 7 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(129): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+linking...
+Program Size: Code=12540 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 7 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(129): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+linking...
+Program Size: Code=12536 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 7 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(129): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+linking...
+Program Size: Code=12524 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 7 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(129): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+linking...
+Program Size: Code=12536 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 7 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
 compiling main.c...
-main.c(52): warning:  #223-D: function "USART_Configuration" declared implicitly
-main.c(55): warning:  #223-D: function "UART2_Send" declared implicitly
 main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
 main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
 main.c(45): warning:  #177-D: variable "time" was declared but never referenced
 main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
 main.c(47): warning:  #177-D: variable "t" was declared but never referenced
-compiling uart.c...
-..\drive\uart.c(140): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
-".\main.axf" - 3 Errors, 8 Warning(s).
+compiling application.c...
+..\drive\application.c(148): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(182): warning:  #940-D: missing return statement at end of non-void function "timet_conver"
+linking...
+Program Size: Code=12936 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 13 Warning(s).
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(154): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(188): warning:  #940-D: missing return statement at end of non-void function "timet_conver"
+linking...
+Program Size: Code=13320 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: Code=13320 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(155): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(189): warning:  #940-D: missing return statement at end of non-void function "timet_conver"
+linking...
+Program Size: Code=13328 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(156): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(190): warning:  #940-D: missing return statement at end of non-void function "timet_conver"
+linking...
+Program Size: Code=13264 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(156): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(190): warning:  #940-D: missing return statement at end of non-void function "timet_conver"
+linking...
+Program Size: Code=13264 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(155): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(190): warning:  #940-D: missing return statement at end of non-void function "timet_conver"
+linking...
+Program Size: Code=13264 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(155): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(191): warning:  #940-D: missing return statement at end of non-void function "timet_conver"
+linking...
+Program Size: Code=13268 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(155): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(162): warning:  #181-D: argument is incompatible with corresponding format string conversion
+..\drive\application.c(191): warning:  #940-D: missing return statement at end of non-void function "timet_conver"
+linking...
+Program Size: Code=13268 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 9 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(155): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(192): warning:  #940-D: missing return statement at end of non-void function "timet_conver"
+linking...
+Program Size: Code=13280 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling main.c...
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling application.c...
+..\drive\application.c(155): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(192): warning:  #940-D: missing return statement at end of non-void function "timet_conver"
+linking...
+Program Size: Code=13280 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 13 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(155): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(192): warning:  #940-D: missing return statement at end of non-void function "timet_conver"
+linking...
+Program Size: Code=13288 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(155): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(192): warning:  #940-D: missing return statement at end of non-void function "timet_conver"
+linking...
+Program Size: Code=13288 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(185): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(79): warning:  #550-D: variable "time" was set but never used
+..\drive\application.c(222): warning:  #940-D: missing return statement at end of non-void function "timet_conver"
+linking...
+Program Size: Code=13488 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 9 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(177): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(79): warning:  #550-D: variable "time" was set but never used
+linking...
+Program Size: Code=13192 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(177): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(79): warning:  #550-D: variable "time" was set but never used
+linking...
+Program Size: Code=13196 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(176): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #550-D: variable "time" was set but never used
+linking...
+Program Size: Code=13188 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(176): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #550-D: variable "time" was set but never used
+linking...
+Program Size: Code=13188 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(176): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #550-D: variable "time" was set but never used
+linking...
+Program Size: Code=13184 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(176): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #550-D: variable "time" was set but never used
+linking...
+Program Size: Code=13196 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(176): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #550-D: variable "time" was set but never used
+linking...
+Program Size: Code=13232 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(177): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #550-D: variable "time" was set but never used
+linking...
+Program Size: Code=13236 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(177): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #550-D: variable "time" was set but never used
+linking...
+Program Size: Code=13236 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(178): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #550-D: variable "time" was set but never used
+linking...
+Program Size: Code=13240 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: Code=13240 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling main.c...
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling application.c...
+..\drive\application.c(132): error:  #167: argument of type "command_t *" is incompatible with parameter of type "command_t"
+..\drive\application.c(178): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #177-D: variable "time" was declared but never referenced
+..\drive\application.c(182): warning:  #940-D: missing return statement at end of non-void function "time_inject"
+".\main.axf" - 1 Errors, 14 Warning(s).
 Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling application.c...
+..\drive\application.c(148): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #177-D: variable "time" was declared but never referenced
+..\drive\application.c(181): warning:  #940-D: missing return statement at end of non-void function "time_inject"
+linking...
+Program Size: Code=13252 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 14 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling main.c...
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling application.c...
+..\drive\application.c(148): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #177-D: variable "time" was declared but never referenced
+..\drive\application.c(182): warning:  #940-D: missing return statement at end of non-void function "time_inject"
+linking...
+Program Size: Code=13236 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 14 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(152): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #177-D: variable "time" was declared but never referenced
+..\drive\application.c(186): warning:  #940-D: missing return statement at end of non-void function "time_inject"
+linking...
+Program Size: Code=13536 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 9 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling application.c...
+..\drive\application.c(152): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #177-D: variable "time" was declared but never referenced
+..\drive\application.c(186): warning:  #940-D: missing return statement at end of non-void function "time_inject"
+linking...
+Program Size: Code=13536 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 14 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(152): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #177-D: variable "time" was declared but never referenced
+..\drive\application.c(186): warning:  #940-D: missing return statement at end of non-void function "time_inject"
+linking...
+Program Size: Code=13528 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 9 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(152): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(80): warning:  #177-D: variable "time" was declared but never referenced
+..\drive\application.c(186): warning:  #940-D: missing return statement at end of non-void function "time_inject"
+linking...
+Program Size: Code=13528 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 9 Warning(s).
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(151): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(185): warning:  #940-D: missing return statement at end of non-void function "time_inject"
+linking...
+Program Size: Code=13528 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(151): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(73): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(76): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(77): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(78): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(185): warning:  #940-D: missing return statement at end of non-void function "time_inject"
+linking...
+Program Size: Code=13532 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 8 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling main.c...
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling application.c...
+..\drive\application.c(150): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(70): warning:  #177-D: variable "count" was declared but never referenced
+..\drive\application.c(71): warning:  #177-D: variable "year" was declared but never referenced
+..\drive\application.c(72): warning:  #177-D: variable "month" was declared but never referenced
+..\drive\application.c(73): warning:  #177-D: variable "day" was declared but never referenced
+..\drive\application.c(74): warning:  #177-D: variable "hour" was declared but never referenced
+..\drive\application.c(75): warning:  #177-D: variable "minte" was declared but never referenced
+..\drive\application.c(184): warning:  #940-D: missing return statement at end of non-void function "time_inject"
+linking...
+Program Size: Code=13532 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 13 Warning(s).
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(145): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+..\drive\application.c(179): warning:  #940-D: missing return statement at end of non-void function "time_inject"
+linking...
+Program Size: Code=13516 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling application.c...
+..\drive\application.c(145): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+linking...
+Program Size: Code=13512 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 6 Warning(s).
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(147): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+linking...
+Program Size: Code=13524 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 1 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling main.c...
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling application.c...
+..\drive\application.c(173): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+linking...
+Program Size: Code=13728 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 6 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(203): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+linking...
+Program Size: Code=13944 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 1 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling main.c...
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling application.c...
+..\drive\application.c(221): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+linking...
+Program Size: Code=13792 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 6 Warning(s).
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(270): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+linking...
+Program Size: Code=14288 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 1 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(270): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+linking...
+Program Size: Code=14292 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 1 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(270): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+linking...
+Program Size: Code=14284 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 1 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(275): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+linking...
+Program Size: Code=14468 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 1 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+..\drive\application.c(275): warning:  #940-D: missing return statement at end of non-void function "command_msg_analysis"
+linking...
+Program Size: Code=14464 RO-data=424 RW-data=112 ZI-data=1832  
+".\main.axf" - 0 Errors, 1 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling main.c...
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling application.c...
+..\drive\application.c(42): warning:  #223-D: function "set_alarm" declared implicitly
+..\drive\application.c(48): warning:  #223-D: function "set_alarm" declared implicitly
+linking...
+.\main.axf: Error: L6218E: Undefined symbol set_alarm (referred from application.o).
+".\main.axf" - 1 Errors, 7 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling application.c...
+linking...
+.\main.axf: Error: L6218E: Undefined symbol RTC_DateStruct (referred from application.o).
+.\main.axf: Error: L6218E: Undefined symbol RTC_TimeStruct (referred from application.o).
+".\main.axf" - 2 Errors, 5 Warning(s).
+Target not created
+Rebuild target 'Target 1'
+assembling startup_stm32f37x.s...
+compiling system_stm32f37x.c...
+compiling stm32f37x_it.c...
+compiling main.c...
+main.c(42): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(43): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "time" was declared but never referenced
+main.c(46): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(47): warning:  #177-D: variable "t" was declared but never referenced
+compiling w25x16.c...
+compiling fatapp.c...
+compiling ili9328.c...
+..\drive\ili9328.c(123): warning:  #177-D: variable "i" was declared but never referenced
+compiling sd.c...
+compiling uart.c...
+..\drive\uart.c(202): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
+compiling sdadc.c...
+compiling systick.c...
+compiling rtc.c...
+compiling application.c...
+compiling stm32f37x_spi.c...
+compiling stm32f37x_gpio.c...
+compiling stm32f37x_rcc.c...
+compiling stm32f37x_usart.c...
+compiling stm32f37x_exti.c...
+compiling stm32f37x_misc.c...
+compiling stm32f37x_rtc.c...
+compiling stm32f37x_sdadc.c...
+compiling stm32f37x_pwr.c...
+compiling diskio.c...
+compiling ff.c...
+compiling cc936.c...
+linking...
+.\main.axf: Error: L6218E: Undefined symbol RTC_DateStruct (referred from application.o).
+.\main.axf: Error: L6218E: Undefined symbol RTC_TimeStruct (referred from application.o).
+".\main.axf" - 2 Errors, 7 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling application.c...
+linking...
+Program Size: Code=15218 RO-data=442 RW-data=120 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+linking...
+Program Size: Code=15214 RO-data=442 RW-data=120 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+linking...
+Program Size: Code=15218 RO-data=442 RW-data=120 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+linking...
+Program Size: Code=15246 RO-data=442 RW-data=120 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+linking...
+Program Size: Code=15238 RO-data=442 RW-data=120 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+linking...
+Program Size: Code=15238 RO-data=442 RW-data=120 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+linking...
+Program Size: Code=15242 RO-data=442 RW-data=120 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+linking...
+Program Size: Code=15222 RO-data=442 RW-data=120 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+linking...
+Program Size: Code=15238 RO-data=442 RW-data=120 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+linking...
+Program Size: Code=15238 RO-data=442 RW-data=120 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling main.c...
+main.c(44): warning:  #177-D: variable "RTC_TimeStruct" was declared but never referenced
+main.c(45): warning:  #177-D: variable "RTC_DateStruct" was declared but never referenced
+main.c(47): warning:  #177-D: variable "time" was declared but never referenced
+main.c(48): warning:  #177-D: variable "tbuf" was declared but never referenced
+main.c(49): warning:  #177-D: variable "t" was declared but never referenced
+compiling rtc.c...
+compiling application.c...
+linking...
+Program Size: Code=15254 RO-data=442 RW-data=128 ZI-data=1872  
+".\main.axf" - 0 Errors, 5 Warning(s).
+Build target 'Target 1'
+compiling rtc.c...
+linking...
+Program Size: Code=15290 RO-data=442 RW-data=128 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: Code=15290 RO-data=442 RW-data=128 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: Code=15290 RO-data=442 RW-data=128 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'Target 1'
+compiling application.c...
+linking...
+Program Size: Code=15294 RO-data=442 RW-data=128 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: Code=15294 RO-data=442 RW-data=128 ZI-data=1872  
+".\main.axf" - 0 Errors, 0 Warning(s).
+Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...

@@ -20,6 +20,7 @@
 #include "sdadc.h"
 #include "systick.h"
 #include "rtc.h"
+#include "application.h"
 #include <stdio.h>
 
 #define countof(a) (sizeof(a) / sizeof(*(a)))//计算数组内的成员个数
@@ -35,7 +36,8 @@
 	int16_t InjectedConvData = 0;
 	__IO uint32_t TimingDelay = 0;
 	int adc_start_flag=0;
-	u8 aaa[]="good";
+	int read_flag=0;
+	int read_start_flag=0;
 int main(void)
 {  	
 	  RCC_ClocksTypeDef RCC_Clocks;
@@ -52,8 +54,8 @@ int main(void)
 	SystemInit();
 	USART_Configuration();
 	My_RTC_Init();
-	printf("start\r\n");
-	UART2_Send(aaa,countof(aaa)-1);
+	printf("/**************project start*****************/\r\n");
+	
 
 //	 if(SDADC1_Config() != 0)
 //  {
@@ -136,12 +138,9 @@ int main(void)
 			if(USART_RX_STA&0x8000)
 		{					   
 			len=USART_RX_STA&0x3fff;//得到此次接收到的数据长度
-			printf("\r\n您发送的消息为:\r\n");
-			for(t=0;t<len;t++)
-			{
-				USART_SendData(USART1, USART_RX_BUF[t]);         //向串口1发送数据
-				while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);//等待发送结束
-			}
+//			printf("\r\n您发送的消息为:\r\n");
+			printf("%s\r\n",COMMAND_BUF);
+			command_msg_analysis(COMMAND_BUF,len);
 			printf("\r\n\r\n");//插入换行
 			USART_RX_STA=0;
 		}

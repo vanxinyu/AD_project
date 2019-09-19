@@ -21,6 +21,8 @@
 
 NVIC_InitTypeDef   NVIC_InitStructure;
 extern int adc_start_flag;
+extern int read_flag;
+extern int read_start_flag;
 //RTC时间设置
 //hour,min,sec:小时,分钟,秒钟
 //ampm:@RTC_AM_PM_Definitions  :RTC_H12_AM/RTC_H12_PM
@@ -221,12 +223,17 @@ void RTC_Alarm_IRQHandler(void)
 	if(RTC_GetFlagStatus(RTC_FLAG_ALRAF)==SET)//ALARM A中断?
 	{
 		RTC_ClearFlag(RTC_FLAG_ALRAF);//清除中断标志
+		if(read_flag)
+		read_start_flag=1;
+		else
 		adc_start_flag=1;
-
 	} 
 	if(RTC_GetFlagStatus(RTC_FLAG_ALRBF)==SET)//ALARM A中断?
 	{
 		RTC_ClearFlag(RTC_FLAG_ALRBF);//清除中断标志
+		if(read_flag)
+		read_start_flag=0;
+		else
 		adc_start_flag=0;
 	}     
 	EXTI_ClearITPendingBit(EXTI_Line17);	//清除中断线17的中断标志 											 

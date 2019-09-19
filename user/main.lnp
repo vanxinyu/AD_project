@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp
+--cpu Cortex-M4.fp
 ".\startup_stm32f37x.o"
 ".\system_stm32f37x.o"
 ".\stm32f37x_it.o"
@@ -11,6 +11,7 @@
 ".\sdadc.o"
 ".\systick.o"
 ".\rtc.o"
+".\application.o"
 ".\stm32f37x_spi.o"
 ".\stm32f37x_gpio.o"
 ".\stm32f37x_rcc.o"
@@ -24,6 +25,6 @@
 ".\ff.o"
 ".\cc936.o"
 --strict --scatter ".\main.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\main.map" -o .\main.axf

@@ -17,7 +17,7 @@
 /* Private functions ---------------------------------------------------------*/
 
 u16 USART_RX_STA=0;   	
-u8 USART_RX_BUF[USART_REC_LEN]; 
+u8 COMMAND_BUF[USART_REC_LEN]; 
  
 void USART_Configuration(void)//串口初始化函数
   {  
@@ -174,7 +174,7 @@ void USART2_IRQHandler(void)                	//??1??????
 				if(Res==0x0d)USART_RX_STA|=0x4000;
 				else
 				{
-					USART_RX_BUF[USART_RX_STA&0X3FFF]=Res;
+					COMMAND_BUF[USART_RX_STA&0X3FFF]=Res;
 					USART_RX_STA++;
 					if(USART_RX_STA>(USART_REC_LEN-1))USART_RX_STA=0;//??????,??????	  
 				}		 
@@ -190,7 +190,10 @@ struct __FILE
 	int handle; 
 
 }; 
-
+_ttywrch(int ch) 
+{ 
+ch = ch; 
+} 
 FILE __stdout;       
     
 int _sys_exit(int x) 
