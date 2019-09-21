@@ -19,7 +19,6 @@ RTC_DateTypeDef RTC_Date;
 extern RTC_TimeTypeDef RTC_TimeStruct;
 extern RTC_DateTypeDef RTC_DateStruct;
 
-extern int read_flag;
 /**
 * \brief handle different usart command
 * \param command_buf   the command wait for handle 
@@ -41,14 +40,12 @@ uint8_t Command_msg_handler( command_t* command_rcv )
 		{
 			printf("收到的命令是%s\r\n",command_rcv->head);	
 			set_alarm(command_rcv);
-			read_flag=0;
 			free(command_rcv);
 		}
 		if(strcmp(command_rcv->head,"AT+READDATA")==0)
 		{
 			printf("收到的命令是%s\r\n",command_rcv->head);		
 			set_alarm(command_rcv);
-			read_flag=1;
 			free(command_rcv);
 		}
 	return handle_success;
@@ -289,7 +286,6 @@ void set_time(command_t* command_rcv)
 		RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
 		sprintf((char*)tbuf,"Time:%02d:%02d:%02d",RTC_TimeStruct.RTC_Hours,RTC_TimeStruct.RTC_Minutes,RTC_TimeStruct.RTC_Seconds); 
 		UART2_Send(tbuf,sizeof(tbuf));
-	
 		RTC_GetDate(RTC_Format_BIN, &RTC_DateStruct);
 		sprintf((char*)tbuf,"Date:20%02d-%02d-%02d",RTC_DateStruct.RTC_Year,RTC_DateStruct.RTC_Month,RTC_DateStruct.RTC_Date); 
 		UART2_Send(tbuf,sizeof(tbuf));

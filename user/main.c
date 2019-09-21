@@ -36,8 +36,7 @@
 	int16_t InjectedConvData = 0;
 	__IO uint32_t TimingDelay = 0;
 	int adc_start_flag=0;
-	int read_flag=0;
-	int read_start_flag=0;
+	int sdadc_config=0;
 	RTC_TimeTypeDef RTC_TimeStruct;
 	RTC_DateTypeDef RTC_DateStruct;
 int main(void)
@@ -144,11 +143,21 @@ int main(void)
 			printf("\r\n\r\n");//插入换行
 			USART_RX_STA=0;
 		}
-		t++;
+		if(sdadc_config)
+		{
+			if(t==0)
+			{SDADC1_Config();t++;}
+			else
+			{}
+		}
+		else
+		{
+			t=0;
+			SDADC_Cmd(POT_SDADC, DISABLE);
+		}
 		if(adc_start_flag)
 		{
 			
-			SDADC1_Config();
 			res=f_open(&fsrc,"12-30.txt",FA_WRITE);
 			if (res == FR_OK) 
 			printf("文件创建成功\r\n");
@@ -162,21 +171,10 @@ int main(void)
       /* write result to LCD */
       printf(" value = %2.0f mV  \r\n", InputVoltageMv);
 		}
-		else
-		{	
-		
-//		SDADC_Cmd(POT_SDADC, DISABLE);
-//		if((t%10)==0)	//?100ms????????
-//		{
-//			
-//			RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
-//			sprintf((char*)tbuf,"Time:%02d:%02d:%02d",RTC_TimeStruct.RTC_Hours,RTC_TimeStruct.RTC_Minutes,RTC_TimeStruct.RTC_Seconds); 
-//			printf("time%s\r\n",tbuf);
-//			RTC_GetDate(RTC_Format_BIN, &RTC_DateStruct);
-//			sprintf((char*)tbuf,"Date:20%02d-%02d-%02d",RTC_DateStruct.RTC_Year,RTC_DateStruct.RTC_Month,RTC_DateStruct.RTC_Date); 
-//			printf("data%s\r\n",tbuf);
-//		} 
-		}
+//		else
+//		{	
+//		
+//		}
 		Delay_ms(1);
 	}
 	}
