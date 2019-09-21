@@ -31,20 +31,20 @@ extern int read_flag;
 
 uint8_t Command_msg_handler( command_t* command_rcv )
 {
-		if(strcmp(command_rcv->head,"AD+SETTIME")==0)
+		if(strcmp(command_rcv->head,"AT+SETTIME")==0)
 		{
 			printf("收到的命令是%s\r\n",command_rcv->head);
 			set_time(command_rcv);
 			free(command_rcv);
 		}
-		if(strcmp(command_rcv->head,"AD+START")==0)
+		if(strcmp(command_rcv->head,"AT+START")==0)
 		{
 			printf("收到的命令是%s\r\n",command_rcv->head);	
 			set_alarm(command_rcv);
 			read_flag=0;
 			free(command_rcv);
 		}
-		if(strcmp(command_rcv->head,"AD+READDATA")==0)
+		if(strcmp(command_rcv->head,"AT+READDATA")==0)
 		{
 			printf("收到的命令是%s\r\n",command_rcv->head);		
 			set_alarm(command_rcv);
@@ -96,17 +96,17 @@ uint8_t command_msg_analysis(uint8_t command_buf[],uint8_t len)
 			case mac_flag:
 				if(temp==',')
 				{
-					if(strcmp(command_p->head,"AD+SETTIME")==0)
+					if(strcmp(command_p->head,"AT+SETTIME")==0)
 					{
 						printf("head :%s\r\n",command_p->head);
 						state = time_flag; i=index+1; 
 					}
-					else if(strcmp(command_p->head,"AD+START")==0)
+					else if(strcmp(command_p->head,"AT+START")==0)
 					{
 						printf("head :%s\r\n",command_p->head);
 						state = time_begin_flag;i=index+1;
 					}
-					else if(strcmp(command_p->head,"AD+READDATA")==0)
+					else if(strcmp(command_p->head,"AT+READDATA")==0)
 					{
 						printf("head :%s\r\n",command_p->head);
 						state = time_begin_flag;i=index+1;
