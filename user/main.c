@@ -76,17 +76,17 @@ int main(void)
 	printf("文件创建成功\r\n");
 	else	
 	printf("文件创建失败\r\n");
-//	res = f_write(&fsrc, &w_buffer, countof(w_buffer), &bw);
+	res = f_write(&fsrc, &w_buffer, countof(w_buffer), &bw);
 
-//	if (res == FR_OK) 
-//	printf("SD卡写成功\r\n");	
-//	else
-//	printf("SD卡写失败\r\n");
-//	res=f_close(&fsrc);
-//	if (res == FR_OK) 
-//	printf("文本关闭成功\r\n");
-//	else
-//	printf("文本关闭失败\r\n");
+	if (res == FR_OK) 
+	printf("SD卡写成功\r\n");	
+	else
+	printf("SD卡写失败\r\n");
+	res=f_close(&fsrc);
+	if (res == FR_OK) 
+	printf("文本关闭成功\r\n");
+	else
+	printf("文本关闭失败\r\n");
 //	
 //	res=f_open(&fsrc,"12-30.TXT", FA_WRITE);
 //	if (res == FR_OK) 
