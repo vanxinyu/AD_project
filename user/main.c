@@ -38,11 +38,12 @@
 	int adc_start_flag=0;
 	int read_flag=0;
 	int read_start_flag=0;
+	RTC_TimeTypeDef RTC_TimeStruct;
+	RTC_DateTypeDef RTC_DateStruct;
 int main(void)
 {  	
 	  RCC_ClocksTypeDef RCC_Clocks;
-		RTC_TimeTypeDef RTC_TimeStruct;
-		RTC_DateTypeDef RTC_DateStruct;
+
   __IO float InputVoltageMv = 0;
 	int time=0;
 	u8 tbuf[40];
@@ -55,7 +56,6 @@ int main(void)
 	USART_Configuration();
 	My_RTC_Init();
 	printf("/**************project start*****************/\r\n");
-	UART2_Send((u8 *)"good",sizeof("good"));
 
 	 if(SDADC1_Config() != 0)
   {

@@ -16,8 +16,8 @@
 uint8_t tbuf[40];
 RTC_TimeTypeDef RTC_Time;
 RTC_DateTypeDef RTC_Date;
-RTC_TimeTypeDef RTC_TimeStruct;
-RTC_DateTypeDef RTC_DateStruct;
+extern RTC_TimeTypeDef RTC_TimeStruct;
+extern RTC_DateTypeDef RTC_DateStruct;
 
 extern int read_flag;
 /**

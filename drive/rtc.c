@@ -1,6 +1,7 @@
 #include "rtc.h"
 #include "systick.h"
 #include "sdadc.h"
+#include "stdio.h"
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTEK STM32F407开发板
@@ -23,6 +24,9 @@ NVIC_InitTypeDef   NVIC_InitStructure;
 extern int adc_start_flag;
 extern int read_flag;
 extern int read_start_flag;
+extern	RTC_TimeTypeDef RTC_TimeStruct;
+extern	RTC_DateTypeDef RTC_DateStruct;
+u8  pathname[64] = {0};
 //RTC时间设置
 //hour,min,sec:小时,分钟,秒钟
 //ampm:@RTC_AM_PM_Definitions  :RTC_H12_AM/RTC_H12_PM
@@ -90,7 +94,7 @@ u8 My_RTC_Init(void)
 	 
 		RTC_WriteBackupRegister(RTC_BKP_DR0,0x5050);	//标记已经初始化过了
 	} 
- 
+  RTC_Set_WakeUp(RTC_WakeUpClock_CK_SPRE_16bits,0);
 	return 0;
 }
 
@@ -198,12 +202,12 @@ void RTC_Set_WakeUp(u32 wksel,u16 cnt)
 	
 	
 	RTC_ClearITPendingBit(RTC_IT_WUT); //清除RTC WAKE UP的标志
-  EXTI_ClearITPendingBit(EXTI_Line22);//清除LINE22上的中断标志位 
+  EXTI_ClearITPendingBit(EXTI_Line20);//清除LINE22上的中断标志位 
 	 
 	RTC_ITConfig(RTC_IT_WUT,ENABLE);//开启WAKE UP 定时器中断
 	RTC_WakeUpCmd( ENABLE);//开启WAKE UP 定时器　
 	
-	EXTI_InitStructure.EXTI_Line = EXTI_Line22;//LINE22
+	EXTI_InitStructure.EXTI_Line = EXTI_Line20;//LINE22
   EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;//中断事件
   EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising; //上升沿触发 
   EXTI_InitStructure.EXTI_LineCmd = ENABLE;//使能LINE22
@@ -245,12 +249,27 @@ void RTC_WKUP_IRQHandler(void)
 	if(RTC_GetFlagStatus(RTC_FLAG_WUTF)==SET)//WK_UP中断?
 	{ 
 		RTC_ClearFlag(RTC_FLAG_WUTF);	//清除中断标志
-		
-		
+		RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
+		RTC_GetDate(RTC_Format_BIN, &RTC_DateStruct);
+		camera_new_pathname(pathname,RTC_TimeStruct,RTC_DateStruct);
 	}   
-	EXTI_ClearITPendingBit(EXTI_Line22);//清除中断线22的中断标志 								
+	EXTI_ClearITPendingBit(EXTI_Line20);//清除中断线22的中断标志 								
 }
- 
+void camera_new_pathname(u8 *pname,RTC_TimeTypeDef RTC_TimeStruct,RTC_DateTypeDef RTC_DateStruct)
+{
+	u16 year  = RTC_DateStruct.RTC_Year;
+	u8  month = RTC_DateStruct.RTC_Month,
+	    date  = RTC_DateStruct.RTC_Date,
+	    hour  = RTC_TimeStruct.RTC_Hours,
+	    min   = RTC_TimeStruct.RTC_Minutes,
+	    sec   = RTC_TimeStruct.RTC_Seconds;
+
+	sprintf((char *)pname, "0:/%02d_%02d_%02d/%02d_%02d.txt",year,month,date,hour,min);
+	printf("%s\r\n",pname);
+
+
+}
+
 
 
 
