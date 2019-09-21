@@ -55,7 +55,7 @@ int main(void)
 	USART_Configuration();
 	My_RTC_Init();
 	printf("/**************project start*****************/\r\n");
-	
+	UART2_Send((u8 *)"good",sizeof("good"));
 
 	 if(SDADC1_Config() != 0)
   {
@@ -138,7 +138,7 @@ int main(void)
 			if(USART_RX_STA&0x8000)
 		{					   
 			len=USART_RX_STA&0x3fff;//得到此次接收到的数据长度
-//			printf("\r\n您发送的消息为:\r\n");
+			printf("\r\n您发送的消息为:\r\n");
 			printf("%s\r\n",COMMAND_BUF);
 			command_msg_analysis(COMMAND_BUF,len);
 			printf("\r\n\r\n");//插入换行
@@ -165,17 +165,17 @@ int main(void)
 		else
 		{	
 		
-		SDADC_Cmd(POT_SDADC, DISABLE);
-		if((t%10)==0)	//?100ms????????
-		{
-			
-			RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
-			sprintf((char*)tbuf,"Time:%02d:%02d:%02d",RTC_TimeStruct.RTC_Hours,RTC_TimeStruct.RTC_Minutes,RTC_TimeStruct.RTC_Seconds); 
-			printf("time%s\r\n",tbuf);
-			RTC_GetDate(RTC_Format_BIN, &RTC_DateStruct);
-			sprintf((char*)tbuf,"Date:20%02d-%02d-%02d",RTC_DateStruct.RTC_Year,RTC_DateStruct.RTC_Month,RTC_DateStruct.RTC_Date); 
-			printf("data%s\r\n",tbuf);
-		} 
+//		SDADC_Cmd(POT_SDADC, DISABLE);
+//		if((t%10)==0)	//?100ms????????
+//		{
+//			
+//			RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
+//			sprintf((char*)tbuf,"Time:%02d:%02d:%02d",RTC_TimeStruct.RTC_Hours,RTC_TimeStruct.RTC_Minutes,RTC_TimeStruct.RTC_Seconds); 
+//			printf("time%s\r\n",tbuf);
+//			RTC_GetDate(RTC_Format_BIN, &RTC_DateStruct);
+//			sprintf((char*)tbuf,"Date:20%02d-%02d-%02d",RTC_DateStruct.RTC_Year,RTC_DateStruct.RTC_Month,RTC_DateStruct.RTC_Date); 
+//			printf("data%s\r\n",tbuf);
+//		} 
 		}
 		Delay_ms(1);
 	}

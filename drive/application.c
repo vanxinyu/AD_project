@@ -288,10 +288,11 @@ void set_time(command_t* command_rcv)
 	  RTC_Set_Date(command_rcv->time.year%2000,command_rcv->time.month,command_rcv->time.day,7);		//…Ë÷√»’∆⁄
 		RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
 		sprintf((char*)tbuf,"Time:%02d:%02d:%02d",RTC_TimeStruct.RTC_Hours,RTC_TimeStruct.RTC_Minutes,RTC_TimeStruct.RTC_Seconds); 
-		printf("time%s\r\n",tbuf);
+		UART2_Send(tbuf,sizeof(tbuf));
+	
 		RTC_GetDate(RTC_Format_BIN, &RTC_DateStruct);
 		sprintf((char*)tbuf,"Date:20%02d-%02d-%02d",RTC_DateStruct.RTC_Year,RTC_DateStruct.RTC_Month,RTC_DateStruct.RTC_Date); 
-		printf("data%s\r\n",tbuf);
+		UART2_Send(tbuf,sizeof(tbuf));
 }
 void set_alarm(command_t* command_rcv)
 {
