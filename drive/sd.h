@@ -29,7 +29,7 @@
 #define SD_SPI_MOSI_SOURCE               GPIO_PinSource15
 #define SD_SPI_MOSI_AF                   GPIO_AF_5
 
-#define SD_CS_PIN                        GPIO_Pin_3                 /* PF.05 */
+#define SD_CS_PIN                        GPIO_Pin_8                 /* PF.05 */
 #define SD_CS_GPIO_PORT                  GPIOA                      /* GPIOF */
 #define SD_CS_GPIO_CLK                   RCC_AHBPeriph_GPIOA
 
