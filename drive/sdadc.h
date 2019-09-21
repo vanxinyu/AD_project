@@ -1,5 +1,5 @@
-#ifndef __UART_H
-#define	__UART_H
+#ifndef __SDADC_H
+#define	__SDADC_H
 
 #include "stm32f37x.h"
 #include "systick.h"
@@ -24,4 +24,4 @@
 
 uint32_t SDADC1_Config(void);
 
-#endif /* __UART_H */
+#endif /* __SDADC_H */

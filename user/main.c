@@ -9,15 +9,15 @@
 
 #include "diskio.h"
 #include "stm32f37x.h"
+#include "uart.h"
+#include "sdadc.h"
 #include "ffconf.h"
 #include "sd.h"
 #include "ff.h"
 #include "fatapp.h"
 #include "ili9328.h"
 #include "string.h"
-#include "uart.h"
 #include "w25x16.h"
-#include "sdadc.h"
 #include "systick.h"
 #include "rtc.h"
 #include "application.h"
@@ -57,25 +57,25 @@ int main(void)
 	printf("/**************project start*****************/\r\n");
 	
 
-//	 if(SDADC1_Config() != 0)
-//  {
-//		printf("sdadc config error");
-//  }
+	 if(SDADC1_Config() != 0)
+  {
+		printf("sdadc config error");
+  }
 	  /*-------------------------- SD Init ----------------------------- */ 
-//	disk_initialize(0);
-//	printf("mmc/sd 演示\r\n");	
-//	res = f_mount(0, &fs);    
-//	if(res == FR_OK)
-//	printf("mmc/sd 初始化成功\r\n");		
-//	else	
-//	printf("mmc/sd 初始化失败\r\n");
+	disk_initialize(0);
+	printf("mmc/sd 演示\r\n");	
+	res = f_mount(0, &fs);    
+	if(res == FR_OK)
+	printf("mmc/sd 初始化成功\r\n");		
+	else	
+	printf("mmc/sd 初始化失败\r\n");
 	
-//	
-//	res=f_open(&fsrc,"12-30.txt",FA_CREATE_ALWAYS | FA_WRITE);
-//	if (res == FR_OK) 
-//	printf("文件创建成功\r\n");
-//	else	
-//	printf("文件创建失败\r\n");
+	
+	res=f_open(&fsrc,"12-30.txt",FA_CREATE_ALWAYS | FA_WRITE);
+	if (res == FR_OK) 
+	printf("文件创建成功\r\n");
+	else	
+	printf("文件创建失败\r\n");
 //	res = f_write(&fsrc, &w_buffer, countof(w_buffer), &bw);
 
 //	if (res == FR_OK) 
@@ -144,39 +144,39 @@ int main(void)
 			printf("\r\n\r\n");//插入换行
 			USART_RX_STA=0;
 		}
-//		t++;
-//		if(adc_start_flag)
-//		{
-//			
-//			SDADC1_Config();
-//			res=f_open(&fsrc,"12-30.txt",FA_WRITE);
-//			if (res == FR_OK) 
-//			printf("文件创建成功\r\n");
-//			else	
-//			printf("文件创建失败\r\n");
-//			InputVoltageMv = (((InjectedConvData + 32768) * SDADC_VREF) / (SDADC_GAIN * SDADC_RESOL));
-//			sprintf(w_buffer,"%2.0f mV  ",InputVoltageMv);
-//			f_lseek(&fsrc,fsrc.fsize);
-//			f_write(&fsrc, &w_buffer, strlen(w_buffer), &bw);
-//			res=f_close(&fsrc);
-//      /* write result to LCD */
-//      printf(" value = %2.0f mV  \r\n", InputVoltageMv);
-//		}
-//		else
-//		{	
-//		
-//		SDADC_Cmd(POT_SDADC, DISABLE);
-//		if((t%10)==0)	//?100ms????????
-//		{
-//			
-//			RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
-//			sprintf((char*)tbuf,"Time:%02d:%02d:%02d",RTC_TimeStruct.RTC_Hours,RTC_TimeStruct.RTC_Minutes,RTC_TimeStruct.RTC_Seconds); 
-//			printf("time%s\r\n",tbuf);
-//			RTC_GetDate(RTC_Format_BIN, &RTC_DateStruct);
-//			sprintf((char*)tbuf,"Date:20%02d-%02d-%02d",RTC_DateStruct.RTC_Year,RTC_DateStruct.RTC_Month,RTC_DateStruct.RTC_Date); 
-//			printf("data%s\r\n",tbuf);
-//		} 
-//		}
-////		Delay_ms(1);
+		t++;
+		if(adc_start_flag)
+		{
+			
+			SDADC1_Config();
+			res=f_open(&fsrc,"12-30.txt",FA_WRITE);
+			if (res == FR_OK) 
+			printf("文件创建成功\r\n");
+			else	
+			printf("文件创建失败\r\n");
+			InputVoltageMv = (((InjectedConvData + 32768) * SDADC_VREF) / (SDADC_GAIN * SDADC_RESOL));
+			sprintf(w_buffer,"%2.0f mV  ",InputVoltageMv);
+			f_lseek(&fsrc,fsrc.fsize);
+			f_write(&fsrc, &w_buffer, strlen(w_buffer), &bw);
+			res=f_close(&fsrc);
+      /* write result to LCD */
+      printf(" value = %2.0f mV  \r\n", InputVoltageMv);
+		}
+		else
+		{	
+		
+		SDADC_Cmd(POT_SDADC, DISABLE);
+		if((t%10)==0)	//?100ms????????
+		{
+			
+			RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
+			sprintf((char*)tbuf,"Time:%02d:%02d:%02d",RTC_TimeStruct.RTC_Hours,RTC_TimeStruct.RTC_Minutes,RTC_TimeStruct.RTC_Seconds); 
+			printf("time%s\r\n",tbuf);
+			RTC_GetDate(RTC_Format_BIN, &RTC_DateStruct);
+			sprintf((char*)tbuf,"Date:20%02d-%02d-%02d",RTC_DateStruct.RTC_Year,RTC_DateStruct.RTC_Month,RTC_DateStruct.RTC_Date); 
+			printf("data%s\r\n",tbuf);
+		} 
+		}
+		Delay_ms(1);
 	}
 	}
