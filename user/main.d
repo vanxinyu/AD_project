@@ -46,3 +46,4 @@
 .\main.o: ..\drive\w25x16.h
 .\main.o: ..\drive\rtc.h
 .\main.o: ..\drive\application.h
+.\main.o: ..\drive\time.h

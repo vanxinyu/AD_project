@@ -34,3 +34,4 @@
 .\stm32f37x_it.o: ..\lib\inc\stm32f37x_misc.h
 .\stm32f37x_it.o: ..\drive\sdadc.h
 .\stm32f37x_it.o: ..\drive\systick.h
+.\stm32f37x_it.o: e:\Keil_v4\ARM\ARMCC\bin\..\include\stdio.h

@@ -22,7 +22,7 @@
 #include "rtc.h"
 #include "application.h"
 #include <stdio.h>
-
+#include "time.h"
 #define countof(a) (sizeof(a) / sizeof(*(a)))//计算数组内的成员个数
 ///////////////////////////////////////////////////
 	FATFS fs;// Work area (file system object) for logical drive
@@ -39,6 +39,8 @@
 	__IO uint32_t TimingDelay = 0;
 	int adc_start_flag=0;
 	int sdadc_config=0;
+	extern __IO uint16_t temp1;
+  extern __IO uint16_t temp2;
 	RTC_TimeTypeDef RTC_TimeStruct;
 	RTC_DateTypeDef RTC_DateStruct;
 int main(void)
@@ -56,6 +58,8 @@ int main(void)
 	SystemInit();
 	USART_Configuration();
 	My_RTC_Init();
+	TIM_INT_Config();
+	TIM_OUT_Config();
 	printf("/**************project start*****************/\r\n");
 
 	 if(SDADC1_Config() != 0)
@@ -70,9 +74,6 @@ int main(void)
 	printf("mmc/sd 初始化成功\r\n");		
 	else	
 	printf("mmc/sd 初始化失败\r\n");
-	Delay_ms(1000);
-	printf("%s\r\n",pathname);
-	printf("%s\r\n",filename);
 
 ////	res = f_mkdir("0:/19_09_14");
 //	if(res == FR_OK)
@@ -152,6 +153,17 @@ int main(void)
 			command_msg_analysis(COMMAND_BUF,len);
 			printf("\r\n\r\n");//插入换行
 			USART_RX_STA=0;
+		}
+			if(temp1==100)
+		{
+			temp1=0;
+			printf(" 1\r\n");
+
+			}
+		if(temp2==100)
+		{
+			temp2=0;
+			printf(" 2\r\n");
 		}
 		if(sdadc_config)
 		{

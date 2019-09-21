@@ -34,3 +34,11 @@
 .\rtc.o: ..\lib\inc\stm32f37x_misc.h
 .\rtc.o: ..\drive\systick.h
 .\rtc.o: ..\drive\sdadc.h
+.\rtc.o: e:\Keil_v4\ARM\ARMCC\bin\..\include\stdio.h
+.\rtc.o: ..\ff\FatFs_vR0.08a\diskio.h
+.\rtc.o: ..\ff\FatFs_vR0.08a\integer.h
+.\rtc.o: ..\ff\FatFs_vR0.08a\ffconf.h
+.\rtc.o: ..\drive\sd.h
+.\rtc.o: ..\ff\FatFs_vR0.08a\ff.h
+.\rtc.o: ..\drive\fatapp.h
+.\rtc.o: e:\Keil_v4\ARM\ARMCC\bin\..\include\string.h
