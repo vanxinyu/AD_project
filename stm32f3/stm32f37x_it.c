@@ -31,7 +31,7 @@
 #include "stm32f37x_it.h"
 #include "sdadc.h"
 #include "systick.h"
-
+#include <stdio.h>
 /** @addtogroup STM32F37x_StdPeriph_Examples
   * @{
   */
@@ -73,6 +73,7 @@ void HardFault_Handler(void)
   /* Go to infinite loop when Hard Fault exception occurs */
   while (1)
   {
+		printf("hardfault");
   }
 }
 

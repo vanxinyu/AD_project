@@ -31,6 +31,8 @@
 	BYTE buffer[1024]; // file copy buffer
 	UINT br, bw;         // File R/W count
   char w_buffer[24];//演示写入文件
+	extern u8  pathname[48];
+	extern u8  filename[24];
 ////////////////////////////////////////////////////
 
 	int16_t InjectedConvData = 0;
@@ -68,24 +70,32 @@ int main(void)
 	printf("mmc/sd 初始化成功\r\n");		
 	else	
 	printf("mmc/sd 初始化失败\r\n");
-	
-	
-	res=f_open(&fsrc,"12-30.txt",FA_CREATE_ALWAYS | FA_WRITE);
-	if (res == FR_OK) 
-	printf("文件创建成功\r\n");
-	else	
-	printf("文件创建失败\r\n");
-	res = f_write(&fsrc, &w_buffer, countof(w_buffer), &bw);
+	Delay_ms(1000);
+	printf("%s\r\n",pathname);
+	printf("%s\r\n",filename);
 
-	if (res == FR_OK) 
-	printf("SD卡写成功\r\n");	
-	else
-	printf("SD卡写失败\r\n");
-	res=f_close(&fsrc);
-	if (res == FR_OK) 
-	printf("文本关闭成功\r\n");
-	else
-	printf("文本关闭失败\r\n");
+////	res = f_mkdir("0:/19_09_14");
+//	if(res == FR_OK)
+//	{printf("目录创建成功\r\n");}
+//	else
+//	{printf("目录创建失败\r\n");}
+//	res=f_open(&fsrc,(char *)filename,FA_CREATE_ALWAYS | FA_WRITE);
+////	res=f_open(&fsrc,"0:/19_09_14/12_55.txt",FA_CREATE_ALWAYS | FA_WRITE);
+//	if (res == FR_OK) 
+//	printf("文件创建成功\r\n");
+//	else	
+//	printf("文件创建失败\r\n");
+//	res = f_write(&fsrc, &w_buffer, countof(w_buffer), &bw);
+
+//	if (res == FR_OK) 
+//	printf("SD卡写成功\r\n");	
+//	else
+//	printf("SD卡写失败\r\n");
+//	res=f_close(&fsrc);
+//	if (res == FR_OK) 
+//	printf("文本关闭成功\r\n");
+//	else
+//	printf("文本关闭失败\r\n");
 //	
 //	res=f_open(&fsrc,"12-30.TXT", FA_WRITE);
 //	if (res == FR_OK) 
@@ -155,14 +165,10 @@ int main(void)
 			t=0;
 			SDADC_Cmd(POT_SDADC, DISABLE);
 		}
+		
 		if(adc_start_flag)
 		{
-			
-			res=f_open(&fsrc,"12-30.txt",FA_WRITE);
-			if (res == FR_OK) 
-			printf("文件创建成功\r\n");
-			else	
-			printf("文件创建失败\r\n");
+			res=f_open(&fsrc,(char *)filename, FA_WRITE);
 			InputVoltageMv = (((InjectedConvData + 32768) * SDADC_VREF) / (SDADC_GAIN * SDADC_RESOL));
 			sprintf(w_buffer,"%2.0f mV  ",InputVoltageMv);
 			f_lseek(&fsrc,fsrc.fsize);

@@ -2,6 +2,12 @@
 #include "systick.h"
 #include "sdadc.h"
 #include "stdio.h"
+#include "diskio.h"
+#include "ffconf.h"
+#include "sd.h"
+#include "ff.h"
+#include "fatapp.h"
+#include "string.h"
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTEK STM32F407开发板
@@ -25,7 +31,14 @@ extern int adc_start_flag;
 extern int sdadc_config;
 extern	RTC_TimeTypeDef RTC_TimeStruct;
 extern	RTC_DateTypeDef RTC_DateStruct;
-u8  pathname[64] = {0};
+u8  pathname[48] = {0};
+u8  pathexist[48] = {0};
+u8  filename[24] = {0};
+extern	FATFS fs;// Work area (file system object) for logical drive
+extern	FRESULT res;// FatFs function common result code
+extern	FIL fsrc, fdst;      // file objects
+extern	BYTE buffer[1024]; // file copy buffer
+extern	UINT br, bw;         // File R/W count
 //RTC时间设置
 //hour,min,sec:小时,分钟,秒钟
 //ampm:@RTC_AM_PM_Definitions  :RTC_H12_AM/RTC_H12_PM
@@ -247,11 +260,25 @@ void RTC_WKUP_IRQHandler(void)
 		RTC_ClearFlag(RTC_FLAG_WUTF);	//清除中断标志
 		RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
 		RTC_GetDate(RTC_Format_BIN, &RTC_DateStruct);
-		camera_new_pathname(pathname,RTC_TimeStruct,RTC_DateStruct);
+		if(adc_start_flag)
+		{
+			camera_new_pathname(pathname,filename,RTC_TimeStruct,RTC_DateStruct);
+			res = f_mkdir((char *)pathname);
+			if(res == FR_OK)
+			{printf("目录创建成功\r\n");}
+			else
+			{printf("目录创建失败\r\n");}
+			res=f_open(&fsrc,(char *)filename, FA_CREATE_NEW | FA_WRITE);
+			if (res == FR_OK) 
+			printf("文件创建成功\r\n");
+			else	
+			printf("文件创建失败\r\n");
+			res=f_close(&fsrc);
+		}
 	}   
 	EXTI_ClearITPendingBit(EXTI_Line20);//清除中断线22的中断标志 								
 }
-void camera_new_pathname(u8 *pname,RTC_TimeTypeDef RTC_TimeStruct,RTC_DateTypeDef RTC_DateStruct)
+void camera_new_pathname(u8 *pname,u8 *fname,RTC_TimeTypeDef RTC_TimeStruct,RTC_DateTypeDef RTC_DateStruct)
 {
 	u16 year  = RTC_DateStruct.RTC_Year;
 	u8  month = RTC_DateStruct.RTC_Month,
@@ -260,7 +287,8 @@ void camera_new_pathname(u8 *pname,RTC_TimeTypeDef RTC_TimeStruct,RTC_DateTypeDe
 	    min   = RTC_TimeStruct.RTC_Minutes,
 	    sec   = RTC_TimeStruct.RTC_Seconds;
 
-	sprintf((char *)pname, "0:/%02d_%02d_%02d/%02d_%02d.txt",year,month,date,hour,min);
+	sprintf((char *)pname, "0:/%02d_%02d_%02d",year,month,date);
+	sprintf((char *)fname, "0:/%02d_%02d_%02d/%02d_%02d.txt",year,month,date,hour,min);
 }
 
 
