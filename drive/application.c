@@ -10,14 +10,26 @@
 #include "stdlib.h"
 #include "rtc.h"
 #include "sd.h"
-
+#include "diskio.h"
+#include "ffconf.h"
+#include "sd.h"
+#include "ff.h"
+#include "fatapp.h"
 
 
 uint8_t tbuf[40];
 RTC_TimeTypeDef RTC_Time;
 RTC_DateTypeDef RTC_Date;
+time_t starttime;
+time_t endtime;
 extern RTC_TimeTypeDef RTC_TimeStruct;
 extern RTC_DateTypeDef RTC_DateStruct;
+
+extern	FATFS fs;// Work area (file system object) for logical drive
+extern	FRESULT res;// FatFs function common result code
+extern	FIL fsrc, fdst;      // file objects
+extern	BYTE buffer[1024]; // file copy buffer
+extern	UINT br, bw;         // File R/W count
 
 /**
 * \brief handle different usart command
@@ -44,8 +56,8 @@ uint8_t Command_msg_handler( command_t* command_rcv )
 		}
 		if(strcmp(command_rcv->head,"AT+READDATA")==0)
 		{
-			printf("收到的命令是%s\r\n",command_rcv->head);		
-			set_alarm(command_rcv);
+			printf("收到的命令是%s\r\n",command_rcv->head);
+      Date_read(command_rcv);			
 			free(command_rcv);
 		}
 	return handle_success;
@@ -398,19 +410,31 @@ uint8_t timet_compare(time_t time1,time_t time2)
 	}
 }
 
-//uint8_t MY_AD_start(uint16_t time)
-//{
-//	HAL_RTC_GetTime(&hrtc,&RTC_Time,RTC_FORMAT_BIN);
-//	sprintf((char*)tbuf,"Time:%02d:%02d:%02d\r\n",RTC_Time.Hours,RTC_Time.Minutes,RTC_Time.Seconds);
-//	HAL_UART_Transmit(&huart2,(uint8_t*)tbuf,sizeof(tbuf),1000);
-//	HAL_RTC_GetDate(&hrtc,&RTC_Date,RTC_FORMAT_BIN);
-//	sprintf((char*)tbuf,"Date:20%02d-%02d-%02d\r\n",RTC_Date.Year,RTC_Date.Month,RTC_Date.Date);
-//	HAL_UART_Transmit(&huart2,(uint8_t*)tbuf,sizeof(tbuf),1000);
-//	return 0;
-//}
+uint8_t Date_read(command_t* command_rcv)
+{
+	u8 fileread[24];
+	u8 fileend[24];
+	time_t starttime=command_rcv->start_time;
+	sprintf((char *)fileread, "0:/%02d_%02d_%02d/%02d_%02d.txt",starttime.year%2000,starttime.month,starttime.day,starttime.hour,starttime.minte);
+	printf("%s\r\n",fileend);	
+	res=f_open(&fsrc,(char *)fileread,FA_READ);
+	if (res == FR_OK) 
+	{
+		printf("打开文本成功\r\n");
+		do
+		{
+			res = f_read(&fsrc, &buffer, 512, &br);
+			if (res == FR_OK) 
+			{
+			UART2_Send(buffer,sizeof(buffer));
+			}
+			else
+			printf("读文件失败\r\n");
+		}while(br!=0);
+		res=f_close(&fsrc);
+	}
+	else
+	printf("不存在此文件%s",fileread);
+	return 0;
+}
 
-//void 	project_init(void)
-//{
-//	RTC_init_set();
-//	SD_check_init();
-//}

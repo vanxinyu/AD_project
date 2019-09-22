@@ -33,9 +33,8 @@ extern u8 write_file;
 extern int sdadc_config;
 extern	RTC_TimeTypeDef RTC_TimeStruct;
 extern	RTC_DateTypeDef RTC_DateStruct;
-u8  pathname[48] = {0};
-u8  pathexist[48] = {0};
-u8  filename[24] = {0};
+u8  pathname[24] = {0};
+u8  filename[48] = {0};
 extern	FATFS fs;// Work area (file system object) for logical drive
 extern	FRESULT res;// FatFs function common result code
 extern	FIL fsrc, fdst;      // file objects
@@ -274,8 +273,7 @@ void camera_new_pathname(u8 *pname,u8 *fname,RTC_TimeTypeDef RTC_TimeStruct,RTC_
 	u8  month = RTC_DateStruct.RTC_Month,
 	    date  = RTC_DateStruct.RTC_Date,
 	    hour  = RTC_TimeStruct.RTC_Hours,
-	    min   = RTC_TimeStruct.RTC_Minutes,
-	    sec   = RTC_TimeStruct.RTC_Seconds;
+	    min   = RTC_TimeStruct.RTC_Minutes;
 
 	sprintf((char *)pname, "0:/%02d_%02d_%02d",year,month,date);
 	sprintf((char *)fname, "0:/%02d_%02d_%02d/%02d_%02d.txt",year,month,date,hour,min);

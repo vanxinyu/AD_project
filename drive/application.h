@@ -29,12 +29,12 @@ ERROR CODE
 
 
 typedef struct{
-uint16_t year;
-uint8_t month;
-uint8_t day;
-uint8_t hour;
-uint8_t minte;
-uint8_t second;	
+u16 year;
+u8 month;
+u8 day;
+u8 hour;
+u8 minte;
+u8 second;	
 }time_t;
 
 typedef struct{
@@ -53,4 +53,6 @@ void set_time(command_t* command_rcv);
 void set_alarm(command_t* command_rcv);
 void time_inject(uint8_t index,uint8_t i,time_t time,uint8_t temp);
 void 	project_init(void);
+uint8_t Date_read(command_t* command_rcv);
+uint8_t timet_increment(time_t time1);
 #endif
