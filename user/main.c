@@ -28,6 +28,7 @@
 	FATFS fs;// Work area (file system object) for logical drive
 	FRESULT res;// FatFs function common result code
 	FIL fsrc, fdst;      // file objects
+	DIR dir;
 	BYTE buffer[1024]; // file copy buffer
 	UINT br, bw;         // File R/W count
   char w_buffer[24];//演示写入文件
@@ -75,13 +76,13 @@ int main(void)
 	else	
 	printf("mmc/sd 初始化失败\r\n");
 
-////	res = f_mkdir("0:/19_09_14");
+//	res = f_mkdir("0:/19_09_14");
 //	if(res == FR_OK)
 //	{printf("目录创建成功\r\n");}
 //	else
 //	{printf("目录创建失败\r\n");}
 //	res=f_open(&fsrc,(char *)filename,FA_CREATE_ALWAYS | FA_WRITE);
-////	res=f_open(&fsrc,"0:/19_09_14/12_55.txt",FA_CREATE_ALWAYS | FA_WRITE);
+//	res=f_open(&fsrc,"0:/19_09_14/12_55.txt",FA_CREATE_ALWAYS | FA_WRITE);
 //	if (res == FR_OK) 
 //	printf("文件创建成功\r\n");
 //	else	
@@ -154,16 +155,30 @@ int main(void)
 			printf("\r\n\r\n");//插入换行
 			USART_RX_STA=0;
 		}
-			if(temp1==100)
+			if(temp1>=100)//200ms  TIM3 CC3 F=500HZ (1s/500)*100=200ms
 		{
 			temp1=0;
-			printf(" 1\r\n");
-
+			if(adc_start_flag)
+			{
+				RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
+				RTC_GetDate(RTC_Format_BIN, &RTC_DateStruct);
+				camera_new_pathname(pathname,filename,RTC_TimeStruct,RTC_DateStruct);
+				res = f_opendir(&dir,(char *)pathname);
+				if(res == FR_NO_PATH)
+				{
+					res = f_mkdir((char *)pathname);
+					if(res == FR_OK)
+					{printf("目录创建成功\r\n");}
+					else
+					{printf("目录创建失败\r\n");}
+				}
+				res=f_open(&fsrc,(char *)filename, FA_CREATE_NEW | FA_WRITE);
+				if (res == FR_OK) 
+				printf("文件创建成功\r\n");
+				else	
+				printf("文件创建失败\r\n");
+				res=f_close(&fsrc);
 			}
-		if(temp2==100)
-		{
-			temp2=0;
-			printf(" 2\r\n");
 		}
 		if(sdadc_config)
 		{
@@ -182,10 +197,11 @@ int main(void)
 		{
 			res=f_open(&fsrc,(char *)filename, FA_WRITE);
 			InputVoltageMv = (((InjectedConvData + 32768) * SDADC_VREF) / (SDADC_GAIN * SDADC_RESOL));
-			sprintf(w_buffer,"%2.0f mV  ",InputVoltageMv);
-			f_lseek(&fsrc,fsrc.fsize);
-			f_write(&fsrc, &w_buffer, strlen(w_buffer), &bw);
-			res=f_close(&fsrc);
+//			sprintf(w_buffer,"%2.0fmV ",InputVoltageMv);
+			
+//			f_lseek(&fsrc,fsrc.fsize);
+//			f_write(&fsrc, &w_buffer, strlen(w_buffer), &bw);
+//			res=f_close(&fsrc);
       /* write result to LCD */
       printf(" value = %2.0f mV  \r\n", InputVoltageMv);
 		}

@@ -248,6 +248,7 @@ void RTC_Alarm_IRQHandler(void)
 		RTC_ClearFlag(RTC_FLAG_ALRBF);//清除中断标志
 		SDADC_Cmd(POT_SDADC, DISABLE);
 		adc_start_flag=0;
+		sdadc_config=0;
 	}     
 	EXTI_ClearITPendingBit(EXTI_Line17);	//清除中断线17的中断标志 											 
 }
@@ -260,21 +261,21 @@ void RTC_WKUP_IRQHandler(void)
 		RTC_ClearFlag(RTC_FLAG_WUTF);	//清除中断标志
 		RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
 		RTC_GetDate(RTC_Format_BIN, &RTC_DateStruct);
-		if(adc_start_flag)
-		{
-			camera_new_pathname(pathname,filename,RTC_TimeStruct,RTC_DateStruct);
-			res = f_mkdir((char *)pathname);
-			if(res == FR_OK)
-			{printf("目录创建成功\r\n");}
-			else
-			{printf("目录创建失败\r\n");}
-			res=f_open(&fsrc,(char *)filename, FA_CREATE_NEW | FA_WRITE);
-			if (res == FR_OK) 
-			printf("文件创建成功\r\n");
-			else	
-			printf("文件创建失败\r\n");
-			res=f_close(&fsrc);
-		}
+//		if(adc_start_flag)
+//		{
+//			camera_new_pathname(pathname,filename,RTC_TimeStruct,RTC_DateStruct);
+//			res = f_mkdir((char *)pathname);
+//			if(res == FR_OK)
+//			{printf("目录创建成功\r\n");}
+//			else
+//			{printf("目录创建失败\r\n");}
+//			res=f_open(&fsrc,(char *)filename, FA_CREATE_NEW | FA_WRITE);
+//			if (res == FR_OK) 
+//			printf("文件创建成功\r\n");
+//			else	
+//			printf("文件创建失败\r\n");
+//			res=f_close(&fsrc);
+//		}
 	}   
 	EXTI_ClearITPendingBit(EXTI_Line20);//清除中断线22的中断标志 								
 }

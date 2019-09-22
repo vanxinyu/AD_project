@@ -5,8 +5,8 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-__IO uint16_t CCR3_Val = 13654;
-__IO uint16_t CCR4_Val = 6826;
+__IO uint32_t CCR3_Val = 6000;
+__IO uint16_t CCR4_Val = 3000;
 __IO uint16_t temp1;
 __IO uint16_t temp2;
 uint16_t capture = 0;
@@ -20,11 +20,12 @@ void TIM_INT_Config(void)
    NVIC_InitTypeDef NVIC_InitStructure;
 
   /* TIM3 clock enable */
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
 
   /*  TIM3 中断嵌套设计*/
-  NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;
-   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannel = TIM4_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x02;//抢占优先级1
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;//子优先级2
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStructure);
 }
@@ -42,11 +43,11 @@ void TIM_OUT_Config(void)
        Prescaler = (TIM3CLK / TIM3 counter clock) - 1
        Prescaler = (PCLK1 /6 MHz) - 1
                                                   
-    CC3 翻转率 = TIM3 counter clock / CCR3_Val = 439.4 Hz
-    ==> Toggling frequency = 219.7 Hz
+    CC3 翻转率 = TIM3 counter clock / CCR3_Val = 1kHz
+    ==> Toggling frequency = 500 Hz
     
-    CC4 翻转率= TIM3 counter clock / CCR4_Val = 878.9 Hz
-    ==> Toggling frequency = 439.4 Hz
+    CC4 翻转率= TIM3 counter clock / CCR4_Val = 2k Hz
+    ==> Toggling frequency = 1k Hz
   ----------------------------------------------------------------------- */   
 
   /* 计算预分频值 */
@@ -58,10 +59,10 @@ void TIM_OUT_Config(void)
   TIM_TimeBaseStructure.TIM_ClockDivision = 0;
   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 
-  TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+  TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
 
   /* 预分频器配置 */
-  TIM_PrescalerConfig(TIM3, PrescalerValue, TIM_PSCReloadMode_Immediate);
+  TIM_PrescalerConfig(TIM4, PrescalerValue, TIM_PSCReloadMode_Immediate);
 
   /* 输出比较时序模式配置设置 */
   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Timing;
@@ -70,41 +71,40 @@ void TIM_OUT_Config(void)
   /* 输出比较时序模式配置: 频道3*/
   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
   TIM_OCInitStructure.TIM_Pulse = CCR3_Val;
-  TIM_OC3Init(TIM3, &TIM_OCInitStructure);
-  TIM_OC3PreloadConfig(TIM3, TIM_OCPreload_Disable);
+  TIM_OC3Init(TIM4, &TIM_OCInitStructure);
+  TIM_OC3PreloadConfig(TIM4, TIM_OCPreload_Disable);
 
   /* 输出比较时序模式配置: 频道4 */
   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
   TIM_OCInitStructure.TIM_Pulse = CCR4_Val;
-  TIM_OC4Init(TIM3, &TIM_OCInitStructure);
-  TIM_OC4PreloadConfig(TIM3, TIM_OCPreload_Disable);
+  TIM_OC4Init(TIM4, &TIM_OCInitStructure);
+  TIM_OC4PreloadConfig(TIM4, TIM_OCPreload_Disable);
    
   /* TIM 中断使能 */
-  TIM_ITConfig(TIM3, TIM_IT_CC3 | TIM_IT_CC4, ENABLE);
+  TIM_ITConfig(TIM4, TIM_IT_CC3 | TIM_IT_CC4, ENABLE);
 
   /* TIM3 使能 */
-  TIM_Cmd(TIM3, ENABLE);
+  TIM_Cmd(TIM4, ENABLE);
 	
 	}
 
-void TIM3_IRQHandler(void)
+void TIM4_IRQHandler(void)
 {
-  if (TIM_GetITStatus(TIM3, TIM_IT_CC3) != RESET)
+  if (TIM_GetITStatus(TIM4, TIM_IT_CC3) != RESET)
   {
-    TIM_ClearITPendingBit(TIM3, TIM_IT_CC3);
+    TIM_ClearITPendingBit(TIM4, TIM_IT_CC3);
      temp1++;
-    /* LED3 toggling with frequency = 219.7 Hz */
- //   LED1_Toggle();
-    capture = TIM_GetCapture3(TIM3);
-    TIM_SetCompare3(TIM3, capture + CCR3_Val);
+    /*  toggling with frequency = 500 Hz */
+
+    capture = TIM_GetCapture3(TIM4);
+    TIM_SetCompare3(TIM4, capture + CCR3_Val);
   }
   else
   {
-    TIM_ClearITPendingBit(TIM3, TIM_IT_CC4);
+    TIM_ClearITPendingBit(TIM4, TIM_IT_CC4);
      temp2++;
-    /* LED4 toggling with frequency = 439.4 Hz */
- //   LED2_Toggle();
-    capture = TIM_GetCapture4(TIM3);
-    TIM_SetCompare4(TIM3, capture + CCR4_Val);
+    /* toggling with frequency = 1k Hz */
+    capture = TIM_GetCapture4(TIM4);
+    TIM_SetCompare4(TIM4, capture + CCR4_Val);
   }
 }
