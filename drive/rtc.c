@@ -28,6 +28,8 @@
 
 NVIC_InitTypeDef   NVIC_InitStructure;
 extern int adc_start_flag;
+extern u8 creat_file;
+extern u8 write_file;
 extern int sdadc_config;
 extern	RTC_TimeTypeDef RTC_TimeStruct;
 extern	RTC_DateTypeDef RTC_DateStruct;
@@ -242,6 +244,7 @@ void RTC_Alarm_IRQHandler(void)
 		//SDADC1_Config();
 		sdadc_config=1;
 		adc_start_flag=1;
+		creat_file=1;
 	} 
 	if(RTC_GetFlagStatus(RTC_FLAG_ALRBF)==SET)//ALARM A中断?
 	{
@@ -261,21 +264,7 @@ void RTC_WKUP_IRQHandler(void)
 		RTC_ClearFlag(RTC_FLAG_WUTF);	//清除中断标志
 		RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
 		RTC_GetDate(RTC_Format_BIN, &RTC_DateStruct);
-//		if(adc_start_flag)
-//		{
-//			camera_new_pathname(pathname,filename,RTC_TimeStruct,RTC_DateStruct);
-//			res = f_mkdir((char *)pathname);
-//			if(res == FR_OK)
-//			{printf("目录创建成功\r\n");}
-//			else
-//			{printf("目录创建失败\r\n");}
-//			res=f_open(&fsrc,(char *)filename, FA_CREATE_NEW | FA_WRITE);
-//			if (res == FR_OK) 
-//			printf("文件创建成功\r\n");
-//			else	
-//			printf("文件创建失败\r\n");
-//			res=f_close(&fsrc);
-//		}
+		creat_file=1;
 	}   
 	EXTI_ClearITPendingBit(EXTI_Line20);//清除中断线22的中断标志 								
 }

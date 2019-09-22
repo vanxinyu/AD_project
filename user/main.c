@@ -30,10 +30,15 @@
 	FIL fsrc, fdst;      // file objects
 	DIR dir;
 	BYTE buffer[1024]; // file copy buffer
+	u32 write_buf[1024];
+	u32 write_buf2[1024];
+	u8  writebuf1=1;
 	UINT br, bw;         // File R/W count
-  char w_buffer[24];//演示写入文件
+  char w_buffer[4];//演示写入文件
 	extern u8  pathname[48];
 	extern u8  filename[24];
+	u8 creat_file=0;
+	u8 write_file=0;
 ////////////////////////////////////////////////////
 
 	int16_t InjectedConvData = 0;
@@ -48,8 +53,9 @@ int main(void)
 {  	
 	  RCC_ClocksTypeDef RCC_Clocks;
 
-  __IO float InputVoltageMv = 0;
+  
 	int time=0;
+  int i=0;
 	u8 tbuf[40];
 	u8 t=0; 
 	u8 len;
@@ -120,9 +126,6 @@ int main(void)
 //	printf("文本关闭成功\r\n");
 //	else
 //	printf("文本关闭失败\r\n");
-//	
-//	
-//	
 
 //	res=f_open(&fsrc,"12-30.TXT",FA_READ);
 //	if (res == FR_OK) 
@@ -138,12 +141,6 @@ int main(void)
 //	else
 //	printf("读文件失败\r\n");
 //	res=f_close(&fsrc);
-//	RTC_Set_Time(20,30,50,RTC_H12_AM);	//设置时间
-//	RTC_Set_Date(19,9,15,7);		//设置日期
-//		
-//	RTC_Set_AlarmA(1,20,31,0);
-//	RTC_Set_AlarmB(1,20,31,10);
-		
 	while(1)
 	{
 			if(USART_RX_STA&0x8000)
@@ -158,6 +155,10 @@ int main(void)
 			if(temp1>=100)//200ms  TIM3 CC3 F=500HZ (1s/500)*100=200ms
 		{
 			temp1=0;
+
+		}
+		if(creat_file)
+		{
 			if(adc_start_flag)
 			{
 				RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
@@ -179,7 +180,35 @@ int main(void)
 				printf("文件创建失败\r\n");
 				res=f_close(&fsrc);
 			}
+			creat_file=0;
 		}
+		if(write_file)
+		{
+			if(adc_start_flag)
+			{
+			res=f_open(&fsrc,(char *)filename, FA_WRITE);
+			if(res==FR_OK)
+			{
+				printf("打开成功\r\n");
+			}	
+			for(i=0;i<=1000;i++)
+			{
+				if(writebuf1)
+				{sprintf(w_buffer,"%2.0f ",(double)write_buf2[i]);}
+				else
+				{sprintf(w_buffer,"%2.0f ",(double)write_buf[i]);}
+				f_lseek(&fsrc,fsrc.fsize);
+				f_write(&fsrc, &w_buffer, strlen(w_buffer), &bw);
+			}
+			res=f_close(&fsrc);
+			if(res==FR_OK)
+			{
+				printf("写成功\r\n");
+			}
+			}
+			write_file=0;
+		}
+
 		if(sdadc_config)
 		{
 			if(t==0)
@@ -192,23 +221,6 @@ int main(void)
 			t=0;
 			SDADC_Cmd(POT_SDADC, DISABLE);
 		}
-		
-		if(adc_start_flag)
-		{
-			res=f_open(&fsrc,(char *)filename, FA_WRITE);
-			InputVoltageMv = (((InjectedConvData + 32768) * SDADC_VREF) / (SDADC_GAIN * SDADC_RESOL));
-//			sprintf(w_buffer,"%2.0fmV ",InputVoltageMv);
-			
-//			f_lseek(&fsrc,fsrc.fsize);
-//			f_write(&fsrc, &w_buffer, strlen(w_buffer), &bw);
-//			res=f_close(&fsrc);
-      /* write result to LCD */
-      printf(" value = %2.0f mV  \r\n", InputVoltageMv);
-		}
-//		else
-//		{	
-//		
-//		}
-		Delay_ms(1);
+
 	}
-	}
+}

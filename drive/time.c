@@ -1,12 +1,13 @@
 #include "time.h"
 #include "led.h"
+#include "sdadc.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 __IO uint32_t CCR3_Val = 6000;
-__IO uint16_t CCR4_Val = 3000;
+__IO uint16_t CCR4_Val = 4660;
 __IO uint16_t temp1;
 __IO uint16_t temp2;
 uint16_t capture = 0;
@@ -14,7 +15,14 @@ uint16_t PrescalerValue = 0;
 TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 TIM_OCInitTypeDef  TIM_OCInitStructure;
 
-
+extern u32 write_buf[1024];
+extern u32 write_buf2[1024];
+extern u8  writebuf1;
+int w_index=0;
+__IO float InputVoltageMv = 0;
+extern int16_t InjectedConvData;
+extern int adc_start_flag;
+extern u8 write_file;
 void TIM_INT_Config(void)
 {
    NVIC_InitTypeDef NVIC_InitStructure;
@@ -102,7 +110,28 @@ void TIM4_IRQHandler(void)
   else
   {
     TIM_ClearITPendingBit(TIM4, TIM_IT_CC4);
-     temp2++;
+//     temp2++;
+		if(adc_start_flag)
+		{
+			if(writebuf1)
+			{
+				InputVoltageMv = (((InjectedConvData + 32768) * SDADC_VREF) / (SDADC_GAIN * SDADC_RESOL));
+				write_buf[w_index]=InputVoltageMv;
+				if(w_index++>=1000)
+				{
+					w_index=0;write_file=1;writebuf1=0;
+				}
+			}
+			else
+			{
+				InputVoltageMv = (((InjectedConvData + 32768) * SDADC_VREF) / (SDADC_GAIN * SDADC_RESOL));
+				write_buf2[w_index]=InputVoltageMv;
+				if(w_index++>=1000)
+				{
+					w_index=0;write_file=1;writebuf1=1;
+				}
+			}
+		}
     /* toggling with frequency = 1k Hz */
     capture = TIM_GetCapture4(TIM4);
     TIM_SetCompare4(TIM4, capture + CCR4_Val);
