@@ -52,7 +52,7 @@
   }
 
   /* ƒ£ƒ‚ ‰»Î≈‰÷√Analog Input configuration conf0: use single ended zero reference */
-  SDADC_AINStructure.SDADC_InputMode = SDADC_InputMode_SEZeroReference;
+  SDADC_AINStructure.SDADC_InputMode = SDADC_InputMode_Diff;
   SDADC_AINStructure.SDADC_Gain = POT_SDADC_GAIN;
   SDADC_AINStructure.SDADC_CommonMode = SDADC_CommonMode_VSSA;
   SDADC_AINStructure.SDADC_Offset = 0;

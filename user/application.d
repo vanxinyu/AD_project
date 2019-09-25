@@ -38,3 +38,8 @@
 .\application.o: e:\Keil_v4\ARM\ARMCC\bin\..\include\stdlib.h
 .\application.o: ..\drive\rtc.h
 .\application.o: ..\drive\sd.h
+.\application.o: ..\ff\FatFs_vR0.08a\diskio.h
+.\application.o: ..\ff\FatFs_vR0.08a\integer.h
+.\application.o: ..\ff\FatFs_vR0.08a\ffconf.h
+.\application.o: ..\ff\FatFs_vR0.08a\ff.h
+.\application.o: ..\drive\fatapp.h

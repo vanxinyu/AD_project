@@ -115,7 +115,7 @@ void TIM4_IRQHandler(void)
 		{
 			if(writebuf1)
 			{
-				InputVoltageMv = (((InjectedConvData + 32768) * SDADC_VREF) / (SDADC_GAIN * SDADC_RESOL));
+				InputVoltageMv = (((InjectedConvData + 32768) * SDADC_VREF) / (SDADC_GAIN * SDADC_RESOL))-SDADC_VREF/2;
 				write_buf[w_index]=InputVoltageMv;
 				if(w_index++>=1000)
 				{
@@ -124,7 +124,7 @@ void TIM4_IRQHandler(void)
 			}
 			else
 			{
-				InputVoltageMv = (((InjectedConvData + 32768) * SDADC_VREF) / (SDADC_GAIN * SDADC_RESOL));
+				InputVoltageMv = (((InjectedConvData + 32768) * SDADC_VREF) / (SDADC_GAIN * SDADC_RESOL))-SDADC_VREF/2;
 				write_buf2[w_index]=InputVoltageMv;
 				if(w_index++>=1000)
 				{

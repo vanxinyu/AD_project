@@ -413,7 +413,6 @@ uint8_t timet_compare(time_t time1,time_t time2)
 uint8_t Date_read(command_t* command_rcv)
 {
 	u8 fileread[24];
-	u8 fileend[24];
 	time_t starttime=command_rcv->time;
 	sprintf((char *)fileread, "0:/%02d_%02d_%02d/%02d_%02d.txt",starttime.year%2000,starttime.month,starttime.day,starttime.hour,starttime.minte);
 	res=f_open(&fsrc,(char *)fileread,FA_READ);

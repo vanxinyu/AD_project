@@ -33,3 +33,5 @@
 .\time.o: ..\lib\inc\stm32f37x_wwdg.h
 .\time.o: ..\lib\inc\stm32f37x_misc.h
 .\time.o: ..\drive\led.h
+.\time.o: ..\drive\sdadc.h
+.\time.o: ..\drive\systick.h
