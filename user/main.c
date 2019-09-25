@@ -77,7 +77,7 @@ int main(void)
 	printf("mmc/sd 初始化成功\r\n");		
 	else	
 	printf("mmc/sd 初始化失败\r\n");
-	
+	UART2_Send((u8*)"start",sizeof("start"));
 	while(1)
 	{
 			if(USART_RX_STA&0x8000)

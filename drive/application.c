@@ -118,7 +118,7 @@ uint8_t command_msg_analysis(uint8_t command_buf[],uint8_t len)
 					else if(strcmp(command_p->head,"AT+READDATA")==0)
 					{
 						printf("head :%s\r\n",command_p->head);
-						state = time_begin_flag;i=index+1;
+						state = time_flag;i=index+1;
 					}
 					else
 					{
@@ -414,9 +414,8 @@ uint8_t Date_read(command_t* command_rcv)
 {
 	u8 fileread[24];
 	u8 fileend[24];
-	time_t starttime=command_rcv->start_time;
+	time_t starttime=command_rcv->time;
 	sprintf((char *)fileread, "0:/%02d_%02d_%02d/%02d_%02d.txt",starttime.year%2000,starttime.month,starttime.day,starttime.hour,starttime.minte);
-	printf("%s\r\n",fileend);	
 	res=f_open(&fsrc,(char *)fileread,FA_READ);
 	if (res == FR_OK) 
 	{
