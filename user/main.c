@@ -23,15 +23,18 @@
 #include "application.h"
 #include <stdio.h>
 #include "time.h"
+#include "file.h"
+#include "wkup.h"
+
 #define countof(a) (sizeof(a) / sizeof(*(a)))//计算数组内的成员个数
 ///////////////////////////////////////////////////
 FATFS fs;// Work area (file system object) for logical drive
 FRESULT res;// FatFs function common result code
 FIL fsrc, fdst;      // file objects
 DIR dir;
-BYTE buffer[512]; // file copy buffer
 u32 write_buf[1024];
 u32 write_buf2[1024];
+
 u8  writebuf1=1;
 UINT br, bw;         // File R/W count
 char w_buffer[4];//演示写入文件
@@ -63,6 +66,7 @@ int main(void)
 	My_RTC_Init();
 	TIM_INT_Config();
 	TIM_OUT_Config();
+	WKUP_Init();
 	printf("/**************project start*****************/\r\n");
 
 	 if(SDADC1_Config()!= 0)
@@ -70,13 +74,14 @@ int main(void)
 		printf("sdadc config error");
   }
 	  /*-------------------------- SD Init ----------------------------- */ 
-	disk_initialize(0);
-	printf("mmc/sd 演示\r\n");	
-	res = f_mount(0, &fs);    
-	if(res == FR_OK)
-	printf("mmc/sd 初始化成功\r\n");		
-	else	
-	printf("mmc/sd 初始化失败\r\n");
+//	disk_initialize(0);
+//	printf("mmc/sd 演示\r\n");	
+//	res = f_mount(0, &fs);    
+//	if(res == FR_OK)
+//	printf("mmc/sd 初始化成功\r\n");		
+//	else	
+//	printf("mmc/sd 初始化失败\r\n");
+	file_init();
 	UART2_Send((u8*)"start",sizeof("start"));
 	while(1)
 	{
@@ -100,21 +105,7 @@ int main(void)
 				RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);
 				RTC_GetDate(RTC_Format_BIN, &RTC_DateStruct);
 				camera_new_pathname(pathname,filename,RTC_TimeStruct,RTC_DateStruct);
-				res = f_opendir(&dir,(char *)pathname);
-				if(res == FR_NO_PATH)
-				{
-					res = f_mkdir((char *)pathname);
-					if(res == FR_OK)
-					{printf("目录创建成功\r\n");}
-					else
-					{printf("目录创建失败\r\n");}
-				}
-				res=f_open(&fsrc,(char *)filename, FA_CREATE_NEW | FA_WRITE);
-				if (res == FR_OK) 
-				printf("文件创建成功\r\n");
-				else	
-				printf("文件创建失败\r\n");
-				res=f_close(&fsrc);
+				file_creat((char*)pathname,(char*) filename);
 			}
 			creat_file=0;
 		}
@@ -122,25 +113,10 @@ int main(void)
 		{
 			if(adc_start_flag)
 			{
-			res=f_open(&fsrc,(char *)filename, FA_WRITE);
-			if(res==FR_OK)
-			{
-				printf("打开成功\r\n");
-			}	
-			for(i=0;i<=1000;i++)
-			{
 				if(writebuf1)
-				{sprintf(w_buffer,"%2.0f ",(double)write_buf2[i]);}
+				{file_write((char*) filename, write_buf2);}
 				else
-				{sprintf(w_buffer,"%2.0f ",(double)write_buf[i]);}
-				f_lseek(&fsrc,fsrc.fsize);
-				f_write(&fsrc, &w_buffer, strlen(w_buffer), &bw);
-			}
-			res=f_close(&fsrc);
-			if(res==FR_OK)
-			{
-				printf("写成功\r\n");
-			}
+				{file_write((char*) filename, write_buf); }
 			}
 			write_file=0;
 		}

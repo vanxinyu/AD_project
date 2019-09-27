@@ -467,6 +467,26 @@
               <FileType>1</FileType>
               <FilePath>..\drive\application.c</FilePath>
             </File>
+            <File>
+              <FileName>time.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drive\time.c</FilePath>
+            </File>
+            <File>
+              <FileName>Zigbee.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drive\Zigbee.c</FilePath>
+            </File>
+            <File>
+              <FileName>file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drive\file.c</FilePath>
+            </File>
+            <File>
+              <FileName>wkup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drive\wkup.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -516,6 +536,16 @@
               <FileName>stm32f37x_pwr.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\lib\src\stm32f37x_pwr.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f37x_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lib\src\stm32f37x_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f37x_syscfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lib\src\stm32f37x_syscfg.c</FilePath>
             </File>
           </Files>
         </Group>

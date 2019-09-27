@@ -47,3 +47,5 @@
 .\main.o: ..\drive\rtc.h
 .\main.o: ..\drive\application.h
 .\main.o: ..\drive\time.h
+.\main.o: ..\drive\file.h
+.\main.o: ..\drive\wkup.h

@@ -15,7 +15,7 @@
 #include "sd.h"
 #include "ff.h"
 #include "fatapp.h"
-
+#include "wkup.h"
 
 uint8_t tbuf[40];
 RTC_TimeTypeDef RTC_Time;
@@ -47,6 +47,7 @@ uint8_t Command_msg_handler( command_t* command_rcv )
 			printf("收到的命令是%s\r\n",command_rcv->head);
 			set_time(command_rcv);
 			free(command_rcv);
+			Sys_Enter_Standby();
 		}
 		if(strcmp(command_rcv->head,"AT+START")==0)
 		{
@@ -414,25 +415,26 @@ uint8_t Date_read(command_t* command_rcv)
 {
 	u8 fileread[24];
 	time_t starttime=command_rcv->time;
-	sprintf((char *)fileread, "0:/%02d_%02d_%02d/%02d_%02d.txt",starttime.year%2000,starttime.month,starttime.day,starttime.hour,starttime.minte);
-	res=f_open(&fsrc,(char *)fileread,FA_READ);
-	if (res == FR_OK) 
-	{
-		printf("打开文本成功\r\n");
-		do
-		{
-			res = f_read(&fsrc, &buffer, 512, &br);
-			if (res == FR_OK) 
-			{
-			UART2_Send(buffer,sizeof(buffer));
-			}
-			else
-			printf("读文件失败\r\n");
-		}while(br!=0);
-		res=f_close(&fsrc);
-	}
-	else
-	printf("不存在此文件%s",fileread);
+	sprintf((char *)fileread, "0:/%02d_%02d_%02d/%02d_%02d.bin",starttime.year%2000,starttime.month,starttime.day,starttime.hour,starttime.minte);
+	file_read((char*) fileread);
+//	res=f_open(&fsrc,(char *)fileread,FA_READ);
+//	if (res == FR_OK) 
+//	{
+//		printf("打开文本成功\r\n");
+//		do
+//		{
+//			res = f_read(&fsrc, &buffer, 512, &br);
+//			if (res == FR_OK) 
+//			{
+//			UART2_Send(buffer,sizeof(buffer));
+//			}
+//			else
+//			printf("读文件失败\r\n");
+//		}while(br!=0);
+//		res=f_close(&fsrc);
+//	}
+//	else
+//	printf("不存在此文件%s",fileread);
 	return 0;
 }
 
