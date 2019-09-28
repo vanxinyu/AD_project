@@ -49,3 +49,5 @@
 .\main.o: ..\drive\time.h
 .\main.o: ..\drive\file.h
 .\main.o: ..\drive\wkup.h
+.\main.o: ..\drive\iwdg.h
+.\main.o: ..\drive\adc.h

@@ -44,3 +44,5 @@
 .\application.o: ..\ff\FatFs_vR0.08a\ff.h
 .\application.o: ..\drive\fatapp.h
 .\application.o: ..\drive\wkup.h
+.\application.o: ..\drive\adc.h
+.\application.o: ..\drive\file.h

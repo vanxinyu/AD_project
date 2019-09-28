@@ -25,7 +25,8 @@
 #include "time.h"
 #include "file.h"
 #include "wkup.h"
-
+#include "iwdg.h"
+#include "adc.h"
 #define countof(a) (sizeof(a) / sizeof(*(a)))//计算数组内的成员个数
 ///////////////////////////////////////////////////
 FATFS fs;// Work area (file system object) for logical drive
@@ -52,8 +53,9 @@ extern __IO uint16_t temp1;
 extern __IO uint16_t temp2;
 RTC_TimeTypeDef RTC_TimeStruct;
 RTC_DateTypeDef RTC_DateStruct;
+
 int main(void)
-{  	
+{
 	RCC_ClocksTypeDef RCC_Clocks;
   int i=0;
 	u8 t=0; 
@@ -67,29 +69,22 @@ int main(void)
 	TIM_INT_Config();
 	TIM_OUT_Config();
 	WKUP_Init();
+	adc_init();
+	IWDG_Init(4,500); 
 	printf("/**************project start*****************/\r\n");
 
 	 if(SDADC1_Config()!= 0)
   {
 		printf("sdadc config error");
   }
-	  /*-------------------------- SD Init ----------------------------- */ 
-//	disk_initialize(0);
-//	printf("mmc/sd 演示\r\n");	
-//	res = f_mount(0, &fs);    
-//	if(res == FR_OK)
-//	printf("mmc/sd 初始化成功\r\n");		
-//	else	
-//	printf("mmc/sd 初始化失败\r\n");
 	file_init();
 	UART2_Send((u8*)"start",sizeof("start"));
 	while(1)
 	{
+
 			if(USART_RX_STA&0x8000)
 		{					   
 			len=USART_RX_STA&0x3fff;//得到此次接收到的数据长度
-			printf("\r\n您发送的消息为:\r\n");
-			printf("%s\r\n",COMMAND_BUF);
 			command_msg_analysis(COMMAND_BUF,len);
 			printf("\r\n\r\n");//插入换行
 			USART_RX_STA=0;
@@ -97,6 +92,7 @@ int main(void)
 			if(temp1>=100)//200ms  TIM3 CC3 F=500HZ (1s/500)*100=200ms
 		{
 			temp1=0;
+			IWDG_Feed();
 		}
 		if(creat_file)
 		{

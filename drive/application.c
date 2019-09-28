@@ -16,8 +16,11 @@
 #include "ff.h"
 #include "fatapp.h"
 #include "wkup.h"
+#include "adc.h"
+#include "file.h"
 
 uint8_t tbuf[40];
+
 RTC_TimeTypeDef RTC_Time;
 RTC_DateTypeDef RTC_Date;
 time_t starttime;
@@ -42,12 +45,15 @@ extern	UINT br, bw;         // File R/W count
 
 uint8_t Command_msg_handler( command_t* command_rcv )
 {
+	   u8 value;int i=0;u16 adc_value;
 		if(strcmp(command_rcv->head,"AT+SETTIME")==0)
 		{
 			printf("收到的命令是%s\r\n",command_rcv->head);
 			set_time(command_rcv);
 			free(command_rcv);
-			Sys_Enter_Standby();
+//			RCC_ClearFlag();
+//			NVIC_SystemReset();
+//			Sys_Enter_Standby();
 		}
 		if(strcmp(command_rcv->head,"AT+START")==0)
 		{
@@ -59,6 +65,13 @@ uint8_t Command_msg_handler( command_t* command_rcv )
 		{
 			printf("收到的命令是%s\r\n",command_rcv->head);
       Date_read(command_rcv);			
+			free(command_rcv);
+		}
+		if(strcmp(command_rcv->head,"AT+READBATTERY")==0)
+		{
+			printf("收到的命令是%s\r\n",command_rcv->head);
+      adc_value=get_adc_value();
+			printf("%d\r\n",adc_value);			
 			free(command_rcv);
 		}
 	return handle_success;
@@ -129,6 +142,14 @@ uint8_t command_msg_analysis(uint8_t command_buf[],uint8_t len)
 						return unexpected_command;
 					}
 				}
+				if(index==len-1)
+					{
+						if(strcmp(command_p->head,"AT+READBATTERY")==0)
+							{
+								printf("head :%s\r\n",command_p->head);
+								state = head_flag;
+							}
+					}
 				break;
 			case time_flag:
 				if((temp>='0')&&(temp<='9'))
