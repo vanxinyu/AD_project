@@ -8,98 +8,8 @@ Project File Date:  09/29/2019
 
 <h2>Output:</h2>
 Build target 'Target 1'
-compiling stm32f37x_it.c...
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(76): warning:  #223-D: function "SDADC1_Config" declared implicitly
-main.c(60): warning:  #177-D: variable "i" was declared but never referenced
-compiling sdadc.c...
-..\drive\sdadc.c(172): warning:  #223-D: function "led_toggle" declared implicitly
-..\drive\sdadc.c(172): error:  #20: identifier "LED1" is undefined
-compiling rtc.c...
-compiling time.c...
-".\main.axf" - 1 Errors, 7 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling sdadc.c...
 linking...
-.\main.axf: Error: L6200E: Symbol TIM4_IRQHandler multiply defined (by time.o and sdadc.o).
-".\main.axf" - 1 Errors, 0 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling sdadc.c...
-compiling time.c...
-linking...
-.\main.axf: Error: L6218E: Undefined symbol IWDG_Feed (referred from main.o).
-.\main.axf: Error: L6218E: Undefined symbol IWDG_Init (referred from main.o).
-.\main.axf: Error: L6218E: Undefined symbol SDADC1_Config (referred from main.o).
-.\main.axf: Error: L6218E: Undefined symbol adc_init (referred from main.o).
-.\main.axf: Error: L6218E: Undefined symbol get_adc_value (referred from application.o).
-".\main.axf" - 5 Errors, 0 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling stm32f37x_iwdg.c...
-linking...
-.\main.axf: Error: L6218E: Undefined symbol IWDG_Feed (referred from main.o).
-.\main.axf: Error: L6218E: Undefined symbol IWDG_Init (referred from main.o).
-.\main.axf: Error: L6218E: Undefined symbol SDADC1_Config (referred from main.o).
-.\main.axf: Error: L6218E: Undefined symbol adc_init (referred from main.o).
-.\main.axf: Error: L6218E: Undefined symbol get_adc_value (referred from application.o).
-".\main.axf" - 5 Errors, 0 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling iwdg.c...
-compiling adc.c...
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.c(75): warning:  #1-D: last line of file ends without a newline
-compiling stm32f37x_adc.c...
-linking...
-.\main.axf: Error: L6218E: Undefined symbol SDADC1_Config (referred from main.o).
-".\main.axf" - 1 Errors, 4 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(122): warning:  #223-D: function "SDADC1_Config" declared implicitly
-main.c(60): warning:  #177-D: variable "i" was declared but never referenced
-linking...
-.\main.axf: Error: L6218E: Undefined symbol SDADC1_Config (referred from main.o).
-".\main.axf" - 1 Errors, 6 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(60): warning:  #177-D: variable "i" was declared but never referenced
-main.c(61): warning:  #177-D: variable "t" was declared but never referenced
-linking...
-Program Size: Code=33210 RO-data=482 RW-data=184 ZI-data=12368  
-".\main.axf" - 0 Errors, 6 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(60): warning:  #177-D: variable "i" was declared but never referenced
-main.c(61): warning:  #177-D: variable "t" was declared but never referenced
-linking...
-Program Size: Code=33258 RO-data=482 RW-data=184 ZI-data=12368  
-".\main.axf" - 0 Errors, 6 Warning(s).
-Build target 'Target 1'
-compiling rtc.c...
-linking...
-Program Size: Code=33286 RO-data=482 RW-data=184 ZI-data=12368  
+Program Size: Code=33034 RO-data=442 RW-data=160 ZI-data=10288  
 ".\main.axf" - 0 Errors, 0 Warning(s).
 Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
 Erase Done.
@@ -115,48 +25,9 @@ compiling main.c...
 main.c(60): warning:  #177-D: variable "i" was declared but never referenced
 main.c(61): warning:  #177-D: variable "t" was declared but never referenced
 linking...
-Program Size: Code=33278 RO-data=482 RW-data=184 ZI-data=12368  
+Program Size: Code=33046 RO-data=442 RW-data=160 ZI-data=10288  
 ".\main.axf" - 0 Errors, 6 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
 Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(60): warning:  #177-D: variable "i" was declared but never referenced
-main.c(61): warning:  #177-D: variable "t" was declared but never referenced
-linking...
-Program Size: Code=33066 RO-data=482 RW-data=184 ZI-data=12336  
-".\main.axf" - 0 Errors, 6 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling system_stm32f37x.c...
-compiling stm32f37x_it.c...
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(60): warning:  #177-D: variable "i" was declared but never referenced
-main.c(61): warning:  #177-D: variable "t" was declared but never referenced
-compiling w25x16.c...
-compiling fatapp.c...
-compiling ili9328.c...
-compiling sd.c...
-compiling uart.c...
-..\drive\uart.c(202): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
-compiling sdadc.c...
-compiling systick.c...
-compiling rtc.c...
 compiling application.c...
 ..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
 ..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
@@ -164,56 +35,8 @@ compiling application.c...
 ..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
 ..\drive\application.c(48): warning:  #177-D: variable "value" was declared but never referenced
 ..\drive\application.c(48): warning:  #177-D: variable "i" was declared but never referenced
-compiling time.c...
-compiling Zigbee.c...
-..\drive\Zigbee.c(325): warning:  #940-D: missing return statement at end of non-void function "zigbee_wakeup_hook"
-compiling file.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\file.c(63): warning:  #940-D: missing return statement at end of non-void function "file_creat"
-..\drive\file.c(85): warning:  #940-D: missing return statement at end of non-void function "file_read"
-..\drive\file.c(107): warning:  #940-D: missing return statement at end of non-void function "file_write"
-..\drive\file.c(111): warning:  #1-D: last line of file ends without a newline
-..\drive\file.c(111): warning:  #940-D: missing return statement at end of non-void function "file_deinit"
-compiling wkup.c...
-compiling iwdg.c...
-compiling adc.c...
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.c(75): warning:  #1-D: last line of file ends without a newline
-compiling stm32f37x_spi.c...
-compiling stm32f37x_gpio.c...
-compiling stm32f37x_rcc.c...
-compiling stm32f37x_usart.c...
-compiling stm32f37x_exti.c...
-compiling stm32f37x_misc.c...
-compiling stm32f37x_rtc.c...
-compiling stm32f37x_sdadc.c...
-compiling stm32f37x_pwr.c...
-compiling stm32f37x_tim.c...
-compiling stm32f37x_syscfg.c...
-compiling stm32f37x_iwdg.c...
-compiling stm32f37x_adc.c...
-compiling diskio.c...
-compiling cc936.c...
 linking...
-Program Size: Code=33058 RO-data=482 RW-data=184 ZI-data=12336  
-".\main.axf" - 0 Errors, 24 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(60): warning:  #177-D: variable "i" was declared but never referenced
-main.c(61): warning:  #177-D: variable "t" was declared but never referenced
-linking...
-Program Size: Code=33066 RO-data=482 RW-data=184 ZI-data=12336  
+Program Size: Code=33202 RO-data=442 RW-data=160 ZI-data=10288  
 ".\main.axf" - 0 Errors, 6 Warning(s).
 Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
 Erase Done.
@@ -229,7 +52,7 @@ compiling main.c...
 main.c(60): warning:  #177-D: variable "i" was declared but never referenced
 main.c(61): warning:  #177-D: variable "t" was declared but never referenced
 linking...
-Program Size: Code=33050 RO-data=482 RW-data=156 ZI-data=12332  
+Program Size: Code=33190 RO-data=442 RW-data=160 ZI-data=10288  
 ".\main.axf" - 0 Errors, 6 Warning(s).
 Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
 Erase Done.
@@ -237,14 +60,6 @@ Programming Done.
 Verify OK.
 Application running ...
 Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(60): warning:  #177-D: variable "i" was declared but never referenced
-main.c(61): warning:  #177-D: variable "t" was declared but never referenced
-compiling sdadc.c...
 compiling application.c...
 ..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
 ..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
@@ -252,37 +67,8 @@ compiling application.c...
 ..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
 ..\drive\application.c(48): warning:  #177-D: variable "value" was declared but never referenced
 ..\drive\application.c(48): warning:  #177-D: variable "i" was declared but never referenced
-compiling file.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\file.c(63): warning:  #940-D: missing return statement at end of non-void function "file_creat"
-..\drive\file.c(85): warning:  #940-D: missing return statement at end of non-void function "file_read"
-..\drive\file.c(107): warning:  #940-D: missing return statement at end of non-void function "file_write"
-..\drive\file.c(111): warning:  #1-D: last line of file ends without a newline
-..\drive\file.c(111): warning:  #940-D: missing return statement at end of non-void function "file_deinit"
 linking...
-.\main.axf: Error: L6200E: Symbol w_index multiply defined (by time.o and sdadc.o).
-".\main.axf" - 1 Errors, 18 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling time.c...
-linking...
-Program Size: Code=33202 RO-data=482 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Build target 'Target 1'
-compiling rtc.c...
-linking...
-Program Size: Code=33198 RO-data=482 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(59): warning:  #177-D: variable "i" was declared but never referenced
-main.c(60): warning:  #177-D: variable "t" was declared but never referenced
-linking...
-Program Size: Code=33198 RO-data=482 RW-data=160 ZI-data=8240  
+Program Size: Code=33190 RO-data=442 RW-data=160 ZI-data=10288  
 ".\main.axf" - 0 Errors, 6 Warning(s).
 Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
 Erase Done.
@@ -291,244 +77,12 @@ Verify OK.
 Application running ...
 Build target 'Target 1'
 linking...
-Program Size: Code=33198 RO-data=482 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Build target 'Target 1'
-compiling sdadc.c...
-linking...
-Program Size: Code=33198 RO-data=482 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(59): warning:  #177-D: variable "i" was declared but never referenced
-main.c(60): warning:  #177-D: variable "t" was declared but never referenced
-linking...
-Program Size: Code=33186 RO-data=482 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 6 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling sdadc.c...
-linking...
-Program Size: Code=33182 RO-data=482 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-linking...
-Program Size: Code=33182 RO-data=482 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(59): warning:  #177-D: variable "i" was declared but never referenced
-main.c(60): warning:  #177-D: variable "t" was declared but never referenced
-linking...
-Program Size: Code=33182 RO-data=482 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 6 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(59): warning:  #177-D: variable "i" was declared but never referenced
-main.c(60): warning:  #177-D: variable "t" was declared but never referenced
-linking...
-Program Size: Code=33182 RO-data=482 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 6 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling rtc.c...
-linking...
-Program Size: Code=33182 RO-data=482 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling rtc.c...
-linking...
-Program Size: Code=33142 RO-data=482 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling rtc.c...
-linking...
-Program Size: Code=33154 RO-data=482 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling rtc.c...
-linking...
-Program Size: Code=33154 RO-data=482 RW-data=160 ZI-data=8240  
+Program Size: Code=33190 RO-data=442 RW-data=160 ZI-data=10288  
 ".\main.axf" - 0 Errors, 0 Warning(s).
 Build target 'Target 1'
 compiling rtc.c...
 linking...
-Program Size: Code=33170 RO-data=482 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling sdadc.c...
-compiling rtc.c...
-linking...
-Program Size: Code=32958 RO-data=442 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling rtc.c...
-linking...
-Program Size: Code=32966 RO-data=442 RW-data=160 ZI-data=8240  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(59): warning:  #177-D: variable "i" was declared but never referenced
-main.c(60): warning:  #177-D: variable "t" was declared but never referenced
-compiling sdadc.c...
-linking...
-Program Size: Code=32926 RO-data=442 RW-data=160 ZI-data=10288  
-".\main.axf" - 0 Errors, 6 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling sdadc.c...
-linking...
-Program Size: Code=32966 RO-data=442 RW-data=160 ZI-data=10288  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(60): warning:  #177-D: variable "i" was declared but never referenced
-main.c(61): warning:  #177-D: variable "t" was declared but never referenced
-compiling sdadc.c...
-compiling led.c...
-linking...
-Program Size: Code=33102 RO-data=442 RW-data=160 ZI-data=10288  
-".\main.axf" - 0 Errors, 6 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(60): warning:  #177-D: variable "i" was declared but never referenced
-main.c(61): warning:  #177-D: variable "t" was declared but never referenced
-compiling led.c...
-linking...
-Program Size: Code=33054 RO-data=442 RW-data=160 ZI-data=10288  
-".\main.axf" - 0 Errors, 6 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: Code=33054 RO-data=442 RW-data=160 ZI-data=10288  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Application running ...
-Build target 'Target 1'
-compiling main.c...
-..\drive\file.h(20): warning:  #1-D: last line of file ends without a newline
-..\drive\adc.h(5): warning:  #1295-D: Deprecated declaration adc_init - give arg types
-..\drive\adc.h(6): warning:  #1295-D: Deprecated declaration get_adc_value - give arg types
-..\drive\adc.h(8): warning:  #1-D: last line of file ends without a newline
-main.c(60): warning:  #177-D: variable "i" was declared but never referenced
-main.c(61): warning:  #177-D: variable "t" was declared but never referenced
-compiling sdadc.c...
-compiling time.c...
-compiling led.c...
-linking...
-Program Size: Code=33042 RO-data=442 RW-data=160 ZI-data=10288  
-".\main.axf" - 0 Errors, 6 Warning(s).
-Build target 'Target 1'
-compiling led.c...
-linking...
-Program Size: Code=33042 RO-data=442 RW-data=160 ZI-data=10288  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Build target 'Target 1'
-compiling led.c...
-linking...
-Program Size: Code=33042 RO-data=442 RW-data=160 ZI-data=10288  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Build target 'Target 1'
-compiling led.c...
-linking...
-Program Size: Code=33034 RO-data=442 RW-data=160 ZI-data=10288  
-".\main.axf" - 0 Errors, 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: Code=33034 RO-data=442 RW-data=160 ZI-data=10288  
+Program Size: Code=33190 RO-data=442 RW-data=160 ZI-data=10288  
 ".\main.axf" - 0 Errors, 0 Warning(s).
 Load "D:\\fxy\\PROJECT\\ad\\AD_project\\user\\main.axf" 
 Erase Done.
@@ -537,5 +91,5 @@ Verify OK.
 Application running ...
 Build target 'Target 1'
 linking...
-Program Size: Code=33034 RO-data=442 RW-data=160 ZI-data=10288  
+Program Size: Code=33190 RO-data=442 RW-data=160 ZI-data=10288  
 ".\main.axf" - 0 Errors, 0 Warning(s).

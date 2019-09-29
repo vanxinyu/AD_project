@@ -66,12 +66,10 @@ int main(void)
 	SystemInit();
 	USART_Configuration();
 	My_RTC_Init();
-//	TIM_INT_Config();
-//	TIM_OUT_Config();
 	WKUP_Init();
 	adc_init();
 	LED_Init();
-//	IWDG_Init(4,500); 
+//	IWDG_Init(4,500);
 	sensor_sample_init();
 	file_init();
 	printf("/**************project start*****************/\r\n");

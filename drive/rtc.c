@@ -148,7 +148,7 @@ void RTC_Set_AlarmA(u8 week,u8 hour,u8 min,u8 sec)
 
 	NVIC_InitStructure.NVIC_IRQChannel = RTC_Alarm_IRQn; 
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;//抢占优先级1
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x00;//子优先级2
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x01;//子优先级2
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//使能外部中断通道
   NVIC_Init(&NVIC_InitStructure);//配置
 }
@@ -189,7 +189,7 @@ void RTC_Set_AlarmB(u8 week,u8 hour,u8 min,u8 sec)
 
 	NVIC_InitStructure.NVIC_IRQChannel = RTC_Alarm_IRQn; 
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;//抢占优先级1
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x00;//子优先级2
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x01;//子优先级2
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//使能外部中断通道
   NVIC_Init(&NVIC_InitStructure);//配置
 }
@@ -228,8 +228,8 @@ void RTC_Set_WakeUp(u32 wksel,u16 cnt)
  
  
 	NVIC_InitStructure.NVIC_IRQChannel = RTC_WKUP_IRQn; 
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x01;//抢占优先级1
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x01;//子优先级2
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;//抢占优先级1
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x00;//子优先级2
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//使能外部中断通道
   NVIC_Init(&NVIC_InitStructure);//配置
 }

@@ -436,26 +436,26 @@ uint8_t Date_read(command_t* command_rcv)
 {
 	u8 fileread[24];
 	time_t starttime=command_rcv->time;
-	sprintf((char *)fileread, "0:/%02d_%02d_%02d/%02d_%02d.bin",starttime.year%2000,starttime.month,starttime.day,starttime.hour,starttime.minte);
-	file_read((char*) fileread);
-//	res=f_open(&fsrc,(char *)fileread,FA_READ);
-//	if (res == FR_OK) 
-//	{
-//		printf("打开文本成功\r\n");
-//		do
-//		{
-//			res = f_read(&fsrc, &buffer, 512, &br);
-//			if (res == FR_OK) 
-//			{
-//			UART2_Send(buffer,sizeof(buffer));
-//			}
-//			else
-//			printf("读文件失败\r\n");
-//		}while(br!=0);
-//		res=f_close(&fsrc);
-//	}
-//	else
-//	printf("不存在此文件%s",fileread);
+	sprintf((char *)fileread, "0:/%02d_%02d_%02d/%02d_%02d.txt",starttime.year%2000,starttime.month,starttime.day,starttime.hour,starttime.minte);
+//	file_read((char*) fileread);
+	res=f_open(&fsrc,(char *)fileread,FA_READ);
+	if (res == FR_OK) 
+	{
+		printf("打开文本成功\r\n");
+		do
+		{
+			res = f_read(&fsrc, &buffer, 512, &br);
+			if (res == FR_OK) 
+			{
+			UART2_Send(buffer,sizeof(buffer));
+			}
+			else
+			printf("读文件失败\r\n");
+		}while(br!=0);
+		res=f_close(&fsrc);
+	}
+	else
+	printf("不存在此文件%s",fileread);
 	return 0;
 }
 
