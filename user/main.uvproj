@@ -487,6 +487,21 @@
               <FileType>1</FileType>
               <FilePath>..\drive\wkup.c</FilePath>
             </File>
+            <File>
+              <FileName>iwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drive\iwdg.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drive\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drive\led.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -546,6 +561,16 @@
               <FileName>stm32f37x_syscfg.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\lib\src\stm32f37x_syscfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f37x_iwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lib\src\stm32f37x_iwdg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f37x_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lib\src\stm32f37x_adc.c</FilePath>
             </File>
           </Files>
         </Group>

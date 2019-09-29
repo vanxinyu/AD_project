@@ -27,14 +27,15 @@
 #include "wkup.h"
 #include "iwdg.h"
 #include "adc.h"
+#include "led.h"
 #define countof(a) (sizeof(a) / sizeof(*(a)))//计算数组内的成员个数
 ///////////////////////////////////////////////////
 FATFS fs;// Work area (file system object) for logical drive
 FRESULT res;// FatFs function common result code
 FIL fsrc, fdst;      // file objects
 DIR dir;
-u32 write_buf[1024];
-u32 write_buf2[1024];
+u16 write_buf[2048];
+u16 write_buf2[1024];
 
 u8  writebuf1=1;
 UINT br, bw;         // File R/W count
@@ -44,7 +45,6 @@ extern u8  filename[24];
 u8 creat_file=0;
 u8 write_file=0;
 ////////////////////////////////////////////////////
-
 int16_t InjectedConvData = 0;
 __IO uint32_t TimingDelay = 0;
 int adc_start_flag=0;
@@ -66,22 +66,25 @@ int main(void)
 	SystemInit();
 	USART_Configuration();
 	My_RTC_Init();
-	TIM_INT_Config();
-	TIM_OUT_Config();
+//	TIM_INT_Config();
+//	TIM_OUT_Config();
 	WKUP_Init();
 	adc_init();
-	IWDG_Init(4,500); 
-	printf("/**************project start*****************/\r\n");
-
-	 if(SDADC1_Config()!= 0)
-  {
-		printf("sdadc config error");
-  }
+	LED_Init();
+//	IWDG_Init(4,500); 
+	sensor_sample_init();
 	file_init();
+	printf("/**************project start*****************/\r\n");
 	UART2_Send((u8*)"start",sizeof("start"));
+	
+//	RTC_Set_Time(20,30,55,RTC_H12_AM);	//????
+//	RTC_Set_Date(19,9,15,7);		//????
+
+//	RTC_Set_AlarmA(1,20,31,0);
+//	RTC_Set_AlarmB(1,20,31,1);
 	while(1)
 	{
-
+		IWDG_Feed();
 			if(USART_RX_STA&0x8000)
 		{					   
 			len=USART_RX_STA&0x3fff;//得到此次接收到的数据长度
@@ -89,11 +92,7 @@ int main(void)
 			printf("\r\n\r\n");//插入换行
 			USART_RX_STA=0;
 		}
-			if(temp1>=100)//200ms  TIM3 CC3 F=500HZ (1s/500)*100=200ms
-		{
-			temp1=0;
-			IWDG_Feed();
-		}
+			
 		if(creat_file)
 		{
 			if(adc_start_flag)
@@ -116,17 +115,17 @@ int main(void)
 			}
 			write_file=0;
 		}
-		if(sdadc_config)
-		{
-			if(t==0)
-			{SDADC1_Config();t++;}
-			else
-			{}
-		}
-		else
-		{
-			t=0;
-			SDADC_Cmd(POT_SDADC, DISABLE);
-		}
+//		if(sdadc_config)
+//		{
+//			if(t==0)
+//			{SDADC1_Config();t++;}
+//			else
+//			{}
+//		}
+//		else
+//		{
+//			t=0;
+//			SDADC_Cmd(POT_SDADC, DISABLE);
+//		}
 	}
 }

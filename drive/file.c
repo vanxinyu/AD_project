@@ -83,7 +83,7 @@ uint16_t file_read(char* filename)
 	else
 	printf("不存在此文件%s",filename);
 }
-uint16_t file_write(char* filename,u32 write_buf[1024])
+uint16_t file_write(char* filename,u16 write_buf[1024])
 {
 	int i=0;
 	res=f_open(&fsrc,(char *)filename, FA_WRITE);

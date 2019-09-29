@@ -12,7 +12,7 @@ uint16_t file_creat(char*pathname,char* filename);
 
 uint16_t file_read(char* filename);
 
-uint16_t file_write(char* filename,u32 write_buf[1024]);
+uint16_t file_write(char* filename,u16 write_buf[1024]);
 
 uint16_t file_deinit(void);
 

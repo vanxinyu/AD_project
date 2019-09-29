@@ -18,7 +18,7 @@ TIM_OCInitTypeDef  TIM_OCInitStructure;
 extern u32 write_buf[1024];
 extern u32 write_buf2[1024];
 extern u8  writebuf1;
-int w_index=0;
+//int w_index=0;
 __IO float InputVoltageMv = 0;
 extern int16_t InjectedConvData;
 extern int adc_start_flag;
@@ -96,44 +96,4 @@ void TIM_OUT_Config(void)
 	
 	}
 
-void TIM4_IRQHandler(void)
-{
-  if (TIM_GetITStatus(TIM4, TIM_IT_CC3) != RESET)
-  {
-    TIM_ClearITPendingBit(TIM4, TIM_IT_CC3);
-     temp1++;
-    /*  toggling with frequency = 500 Hz */
 
-    capture = TIM_GetCapture3(TIM4);
-    TIM_SetCompare3(TIM4, capture + CCR3_Val);
-  }
-  else
-  {
-    TIM_ClearITPendingBit(TIM4, TIM_IT_CC4);
-//     temp2++;
-		if(adc_start_flag)
-		{
-			if(writebuf1)
-			{
-				InputVoltageMv = (((InjectedConvData + 32768) * SDADC_VREF) / (SDADC_GAIN * SDADC_RESOL))-SDADC_VREF/2;
-				write_buf[w_index]=InputVoltageMv;
-				if(w_index++>=1000)
-				{
-					w_index=0;write_file=1;writebuf1=0;
-				}
-			}
-			else
-			{
-				InputVoltageMv = (((InjectedConvData + 32768) * SDADC_VREF) / (SDADC_GAIN * SDADC_RESOL))-SDADC_VREF/2;
-				write_buf2[w_index]=InputVoltageMv;
-				if(w_index++>=1000)
-				{
-					w_index=0;write_file=1;writebuf1=1;
-				}
-			}
-		}
-    /* toggling with frequency = 1k Hz */
-    capture = TIM_GetCapture4(TIM4);
-    TIM_SetCompare4(TIM4, capture + CCR4_Val);
-  }
-}

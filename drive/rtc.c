@@ -147,8 +147,8 @@ void RTC_Set_AlarmA(u8 week,u8 hour,u8 min,u8 sec)
   EXTI_Init(&EXTI_InitStructure);//配置
 
 	NVIC_InitStructure.NVIC_IRQChannel = RTC_Alarm_IRQn; 
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x02;//抢占优先级1
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;//子优先级2
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;//抢占优先级1
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x00;//子优先级2
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//使能外部中断通道
   NVIC_Init(&NVIC_InitStructure);//配置
 }
@@ -188,8 +188,8 @@ void RTC_Set_AlarmB(u8 week,u8 hour,u8 min,u8 sec)
   EXTI_Init(&EXTI_InitStructure);//配置
 
 	NVIC_InitStructure.NVIC_IRQChannel = RTC_Alarm_IRQn; 
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x02;//抢占优先级1
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;//子优先级2
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;//抢占优先级1
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x00;//子优先级2
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//使能外部中断通道
   NVIC_Init(&NVIC_InitStructure);//配置
 }
@@ -228,8 +228,8 @@ void RTC_Set_WakeUp(u32 wksel,u16 cnt)
  
  
 	NVIC_InitStructure.NVIC_IRQChannel = RTC_WKUP_IRQn; 
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x02;//抢占优先级1
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;//子优先级2
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x01;//抢占优先级1
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x01;//子优先级2
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//使能外部中断通道
   NVIC_Init(&NVIC_InitStructure);//配置
 }
@@ -241,16 +241,20 @@ void RTC_Alarm_IRQHandler(void)
 	{
 		RTC_ClearFlag(RTC_FLAG_ALRAF);//清除中断标志
 		//SDADC1_Config();
-		sdadc_config=1;
+//		sdadc_config=1;
+		sensor_sample_init();
 		adc_start_flag=1;
 		creat_file=1;
+		printf("ALARM1");
 	} 
 	if(RTC_GetFlagStatus(RTC_FLAG_ALRBF)==SET)//ALARM A中断?
 	{
 		RTC_ClearFlag(RTC_FLAG_ALRBF);//清除中断标志
-		SDADC_Cmd(POT_SDADC, DISABLE);
+//		SDADC_Cmd(POT_SDADC, DISABLE);
 		adc_start_flag=0;
-		sdadc_config=0;
+//		sdadc_config=0;
+		sensor_sample_deinit();
+		printf("ALARM2");
 	}     
 	EXTI_ClearITPendingBit(EXTI_Line17);	//清除中断线17的中断标志 											 
 }

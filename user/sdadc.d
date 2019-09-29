@@ -33,3 +33,5 @@
 .\sdadc.o: ..\lib\inc\stm32f37x_wwdg.h
 .\sdadc.o: ..\lib\inc\stm32f37x_misc.h
 .\sdadc.o: ..\drive\systick.h
+.\sdadc.o: e:\Keil_v4\ARM\ARMCC\bin\..\include\stdio.h
+.\sdadc.o: ..\drive\led.h

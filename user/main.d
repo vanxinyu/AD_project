@@ -51,3 +51,4 @@
 .\main.o: ..\drive\wkup.h
 .\main.o: ..\drive\iwdg.h
 .\main.o: ..\drive\adc.h
+.\main.o: ..\drive\led.h
